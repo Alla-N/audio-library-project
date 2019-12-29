@@ -1,5 +1,65 @@
 .aside {
     width: 29%;
+    min-height: 100vh;
     background-color: white;
-    
+    padding: 20px; 
+    margin-top: 10px;  
 }
+
+.filterButtons button {
+    display: block;
+    border: none;
+    outline: none;
+    background: transparent;
+    height: 35px;
+    line-height: 35px;
+    width: 200px;
+    font-size: 16px;
+    color: rgb(70, 69, 69);
+    cursor: pointer;
+    margin: 10px;
+    text-align: left;
+}
+
+.filterButtons img {
+    height: 100%;
+    float: left;
+    margin-right: 10px;
+    opacity: 0.9;
+}
+
+.filterButtons button:hover {
+    color: black;
+    font-weight: 500;
+}
+
+.filterButtons button:hover img {
+    opacity: 1;
+}
+
+
+/* -------search------------ */
+
+.searchTags {
+    display: inline-block;
+    text-align: center;
+}
+
+.searchTags button {
+    height: 35px;
+    width: 90px;
+    background-color: #e5ebf3;
+    color:#333;
+    text-transform: lowercase;
+    border: none;
+    outline: none;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.searchTags button:hover {
+    background-color: #314865;
+    color: #fff;
+    box-shadow: 3px 3px 5px grey;
+}
+
