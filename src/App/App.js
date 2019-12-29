@@ -1,21 +1,18 @@
 import React from 'react';
-import './App.css'
-import Header from './Header/Header'
+import './App.css';
+import Header from './Header/Header';
+import Aside from './Aside/Aside';
+import Main from './Main/Main';
+import Footer from './Footer/Footer';
 
 
-function App() {
+const App = () => {
   return (
     <div className = 'App'>
       <Header/>
-      <main>
-        Main
-      </main>
-      <aside>
-        aside
-      </aside>
-      <footer>
-        footer
-      </footer>
+      <Main/>
+      <Aside/>
+      <Footer/>
     </div>
   );
 }
