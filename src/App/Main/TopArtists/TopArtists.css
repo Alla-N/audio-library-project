@@ -1,0 +1,45 @@
+.topArtists {
+    border-bottom: 2px solid rgb(211, 209, 209);
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.topArtists h2 {
+    margin-left: 10px;
+    width: 80%;
+}
+
+.topArtists a {
+    width: 17%;
+    margin: auto;
+    text-align: right;
+    margin-right: 10px;
+}
+
+.topArtistsBlock {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.topArtist {
+    width: 20%;
+    text-align: center;
+    padding: 20px 10px;
+}
+
+.topArtist img {
+    width: 100%;
+    height: auto;
+    border: 1px solid grey;
+    transition: all 0.8s;
+}
+
+.topArtist img:hover {
+    border: 1px solid yellow;
+    box-shadow: 5px 5px 10px grey;
+    border-radius: 50%;
+}
+
