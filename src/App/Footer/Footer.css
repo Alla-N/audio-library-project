@@ -103,35 +103,35 @@
 }
 
 .controls .prev .icon {
-    background-image: url(./icon_prev.png);
+    background-image: url(../img/icon_prev.png);
 }
 
 .controls .play .icon {
-    background-image: url(./icon_play.png);
+    background-image: url(../img/icon_play.png);
 }
 
 .controls .pause .icon {
-    background-image: url(./icon_pause.png);
+    background-image: url(../img/icon_pause.png);
 }
 
 .controls .next .icon {
-    background-image: url(./icon_next.png);
+    background-image: url(../img/icon_next.png);
 }
 
 .controls .repeat .icon {
-    background-image: url(./icon_repeat.png);
+    background-image: url(../img/icon_repeat.png);
 }
 
 .controls .volume .icon {
-    background-image: url(./icon_volume.png);
+    background-image: url(../img/icon_volume.png);
 }
 
 .controls .like .icon {
-    background-image: url(./icon_like.png);
+    background-image: url(../img/icon_like.png);
 }
 
 .controls .download .icon {
-    background-image: url(./icon_download.png);
+    background-image: url(../img/icon_download.png);
 }
 
 /* ---------mp3------------ */

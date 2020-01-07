@@ -7,6 +7,7 @@ export const songs = [
         hashtag:"pop",
         artistImg:"/artistsImg/Elman.jpg",
         likes: 10,
+        length: '02.33',
     }
 ,
     {
@@ -17,6 +18,7 @@ export const songs = [
         hashtag:"pop",
         artistImg:"/artistsImg/Elman.jpg",
         likes: 20,
+        length: '02.33',
     }
 ,
     {
@@ -27,6 +29,7 @@ export const songs = [
         hashtag:"pop",
         artistImg:"/artistsImg/Zivert.jpg",
         likes: 5,
+        length: '03.08',
     }
 ];
 
