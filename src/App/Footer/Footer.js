@@ -36,7 +36,7 @@ const Footer = () => {
                 <div className="actions">
                     <div className="btn volume">
                         <i className="icon"></i>
-                        <div className="controls_box" ondragstart="return false;" ondrop="return false;">
+                        <div className="controls_box">
                             <div className="b_range">
                                 <div className="slider"></div>
                             </div>
@@ -47,7 +47,7 @@ const Footer = () => {
                     </div>
                     <div className="btn download" title="Скачать">
                         <a href="./">
-                            <i class="icon"></i>
+                            <i className="icon"></i>
                         </a>
                     </div>
                 </div>

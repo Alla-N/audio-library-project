@@ -5,5 +5,8 @@
     background-color:  #0066ff;
     height: 80px;
     padding: 10px 20px;
+    position: sticky;
+    top:0;
+    z-index: 10;
 }
 
