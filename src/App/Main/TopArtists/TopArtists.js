@@ -10,7 +10,7 @@ const TopArtists = () => {
         <Link to="/artists">См. все</Link>
         <div className="topArtistsBlock">
         {
-            artistsArray.slice(0,6).map(({
+            artistsArray.slice(0,5).map(({
                 artistName,
                 artistImg
             })=>{

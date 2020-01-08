@@ -12,7 +12,7 @@ class TopSongs extends Component {
             <Link to="/top_songs">См. все</Link>
             <div className='topSongsBlock'>
             {
-                songs.sort(function(a,b){return b.likes-a.likes}).slice(0,7).map(({
+                songs.sort(function(a,b){return b.likes-a.likes}).slice(0,6).map(({
                     id,
                     songName,
                     artistName,
