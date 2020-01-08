@@ -1,18 +1,21 @@
-import React from 'react';
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
 import './Footer.css';
 
-const Footer = () => {
+class Footer extends Component {
+    render(){
+
     return (
         <div className = 'footer'>
-            <audio src=""></audio>
-            <div className="progress">
+            <audio src={this.props.currentSrc} controls autoplay="true"></audio>
+            {/* <div className="progress">
                 <div className="text">
                     <div className="time current">00:57</div>
                     <div className="time duration">03:26</div>
                 </div>
                 <div className="value"></div>
-            </div>
-            <div className="controls">
+            </div> */}
+            {/* <div className="controls">
                 <div className="controls_buttons">
                     <div className="btn prev" title="Предыдущая">
                         <i className="icon"></i>
@@ -51,9 +54,14 @@ const Footer = () => {
                         </a>
                     </div>
                 </div>
-            </div>
+            </div> */}
         </div>
     )
 }
+}
 
-export default Footer;
+const mapStateToProps = (state) => ({
+    currentSrc: state.playSong.currentSong,
+})
+
+export default connect(mapStateToProps)(Footer);

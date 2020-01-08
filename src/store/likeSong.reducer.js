@@ -1,4 +1,4 @@
-export const LikeSongReducer = (state={
+export const likeSongReducer = (state={
 
 }, action) => {
 
@@ -17,5 +17,5 @@ export const LikeSongReducer = (state={
     }; 
     
     default: return state; } 
-    }
+}
     

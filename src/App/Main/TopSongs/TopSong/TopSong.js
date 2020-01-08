@@ -9,12 +9,19 @@ class TopSong extends Component {
 
         if(this.props.isLiked){
         
-        this.props.addDislike(this.props.id)
+        this.props.addDislike(this.props.id);
         
         }else{
         
-        this.props.addLike(this.props.id)
+        this.props.addLike(this.props.id);
+
         }
+    }
+
+    startPlaySong = () =>{
+        
+        this.props.playSong(this.props.src);
+
     }
 
     render(){
@@ -30,7 +37,7 @@ class TopSong extends Component {
         } = this.props
     return (
     <div className="topSong" key={id}>
-        <div className="topSong_button buttonPlay"></div>
+        <div className="topSong_button buttonPlay" onClick={()=>this.startPlaySong()}></div>
         <div className="topSong_title">
             <div className="artist_name">
                 <Link to={`/artists/${artistName}`}>{artistName}</Link>
@@ -51,7 +58,7 @@ class TopSong extends Component {
 }
 
 const mapStateToProps = (state, props) => ({
-    isLiked: state[props.id]
+    isLiked: state.likedSongs[props.id],
 })
 
 const mapDispatchToProps = (dispatch) =>({
@@ -65,6 +72,10 @@ addDislike: (id) => dispatch({
     type:'DISLIKE',
     id:id,
     }),
+playSong: (src) => dispatch ({
+    type: 'PLAY_SONG',
+    src:src,
+}),
 });
 
 

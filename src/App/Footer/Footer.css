@@ -10,6 +10,12 @@
     right: 0;
 }
 
+.footer audio {
+    width: 100%;
+    outline: none;
+    border: none;
+}
+
 /* ----progress panel-------------- */
 
 .progress {

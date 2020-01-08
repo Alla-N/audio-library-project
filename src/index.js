@@ -6,9 +6,9 @@ import './index.css';
 import App from './App/App';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter } from "react-router-dom";
-import {LikeSongReducer} from './store/likeSong.reduser';
+import {rootReducer} from './store/root.reducer';
 
-const store = createStore(LikeSongReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+const store = createStore(rootReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 ReactDOM.render(
 <Provider store={store}>
