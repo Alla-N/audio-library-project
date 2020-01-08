@@ -6,7 +6,7 @@ export const songs = [
         src: "/songs/ELMAN - Лети.mp3",
         hashtag:"pop",
         artistImg:"/artistsImg/Elman.jpg",
-        likes: 10,
+        likes: 17,
         length: '02.33',
     }
 ,
@@ -83,7 +83,7 @@ export const songs = [
         src: "/songs/Zivert - Credo.mp3",
         hashtag:"pop",
         artistImg:"/artistsImg/Zivert.jpg",
-        likes: 11,
+        likes: 14,
         length: '03.04',
     }
 ,
@@ -160,7 +160,7 @@ export const songs = [
         src: "/songs/Время и Стекло - Тролль.mp3",
         hashtag:"pop",
         artistImg:"/artistsImg/ВремяИстекло.jpg",
-        likes: 18,
+        likes: 8,
         length: '03.09',
     }
 ,
@@ -193,7 +193,7 @@ export const songs = [
         src: "/songs/Ани Лорак feat. Григорий Лепс - Зеркала.mp3",
         hashtag:"pop",
         artistImg:"/artistsImg/АниЛорак.jpeg",
-        likes: 14,
+        likes: 4,
         length: '03.42',
     }
     ,
@@ -237,7 +237,7 @@ export const songs = [
         src: "/songs/Ани Лорак - Я Тебя Ждала.mp3",
         hashtag:"pop",
         artistImg:"/artistsImg/АниЛорак.jpeg",
-        likes: 15,
+        likes: 5,
         length: '03.26',
     }
     ,
@@ -314,7 +314,7 @@ export const songs = [
         src: "/songs/Виктор Цой - Пачка сигарет.mp3",
         hashtag:"rock",
         artistImg:"/artistsImg/ВикторЦой.jpg",
-        likes: 15,
+        likes: 11,
         length: '04.29',
     }
     ,
@@ -325,7 +325,7 @@ export const songs = [
         src: "/songs/Виктор Цой - Звезда по имени Солнце.mp3",
         hashtag:"rock",
         artistImg:"/artistsImg/ВикторЦой.jpg",
-        likes: 19,
+        likes: 9,
         length: '03.24',
     }
     ,
@@ -347,7 +347,7 @@ export const songs = [
         src: "/songs/Виктор Цой - Восьмиклассница.mp3",
         hashtag:"rock",
         artistImg:"/artistsImg/ВикторЦой.jpg",
-        likes: 22,
+        likes: 8,
         length: '02.45',
     }
     ,

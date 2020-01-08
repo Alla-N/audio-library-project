@@ -1,60 +1,43 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import {Link} from 'react-router-dom'
 import './Footer.css';
 
 class Footer extends Component {
+
+    changeLikeButtonState = () =>{
+
+        if(this.props.isLiked){
+        
+        this.props.addDislike(this.props.id);
+        
+        }else{
+        
+        this.props.addLike(this.props.id);
+
+        }
+    }
+
     render(){
+
+        if(this.props.currentSrc){
+            let mp3 = document.getElementsByClassName('mp3')[0];
+            mp3.style.display = 'flex'
+        }
 
     return (
         <div className = 'footer'>
+            <div className="mp3">
+                <span className="title">
+                    <Link to={`/artists/${this.props.artistName}`}><span className="artist_name">{this.props.artistName}</span></Link>
+                    <span className="song_name">{this.props.songName}</span>
+                    <span className="topSong_button buttonLike" onClick={()=>this.changeLikeButtonState()}>
+            {this.props.isLiked ? <span className="like"></span> :  <span className="dislike"></span>}
+
+            </span>
+                </span>
+            </div>
             <audio src={this.props.currentSrc} controls autoplay="true"></audio>
-            {/* <div className="progress">
-                <div className="text">
-                    <div className="time current">00:57</div>
-                    <div className="time duration">03:26</div>
-                </div>
-                <div className="value"></div>
-            </div> */}
-            {/* <div className="controls">
-                <div className="controls_buttons">
-                    <div className="btn prev" title="Предыдущая">
-                        <i className="icon"></i>
-                    </div>
-                    <div className="btn play">
-                        <i className="icon"></i>
-                    </div>
-                    <div className="btn next" title="Следующая">
-                        <i className="icon"></i>
-                    </div>
-                    <div className="btn repeat" title="Зациклить воспроизведение">
-                        <i className="icon"></i>
-                    </div>
-                </div>
-                <div className="mp3">
-                    <span className="title">
-                        <span className="artist_name">Artist name</span>
-                        <span className="song_name">Song name</span>
-                    </span>
-                </div>
-                <div className="actions">
-                    <div className="btn volume">
-                        <i className="icon"></i>
-                        <div className="controls_box">
-                            <div className="b_range">
-                                <div className="slider"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="btn like" title="Мне нравится">
-                        <i className="icon"></i>
-                    </div>
-                    <div className="btn download" title="Скачать">
-                        <a href="./">
-                            <i className="icon"></i>
-                        </a>
-                    </div>
-                </div>
-            </div> */}
         </div>
     )
 }
@@ -62,6 +45,23 @@ class Footer extends Component {
 
 const mapStateToProps = (state) => ({
     currentSrc: state.playSong.currentSong,
-})
+    artistName: state.playSong.currentArtistName,
+    songName: state.playSong.currentSongName,
+    isLiked: state.likedSongs[state.playSong.currentSongId],
+    id: state.playSong.currentSongId,
+});
 
-export default connect(mapStateToProps)(Footer);
+const mapDispatchToProps = (dispatch) =>({
+
+    addLike: (id) => dispatch({
+        type:'LIKE',
+        id:id,
+        }),
+        
+    addDislike: (id) => dispatch({
+        type:'DISLIKE',
+        id:id,
+        }),
+    });
+
+export default connect(mapStateToProps, mapDispatchToProps)(Footer);

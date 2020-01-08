@@ -20,7 +20,7 @@ class TopSong extends Component {
 
     startPlaySong = () =>{
         
-        this.props.playSong(this.props.src);
+        this.props.playSong(this.props.src, this.props.artistName, this.props.songName, this.props.id);
 
     }
 
@@ -72,9 +72,12 @@ addDislike: (id) => dispatch({
     type:'DISLIKE',
     id:id,
     }),
-playSong: (src) => dispatch ({
+playSong: (src, artistName, songName, SongId) => dispatch ({
     type: 'PLAY_SONG',
     src:src,
+    artistName:artistName,
+    songName:songName,
+    id:SongId,
 }),
 });
 

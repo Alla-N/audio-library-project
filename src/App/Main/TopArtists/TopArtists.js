@@ -11,11 +11,12 @@ const TopArtists = () => {
         <div className="topArtistsBlock">
         {
             artistsArray.slice(0,5).map(({
+                id,
                 artistName,
                 artistImg
             })=>{
                 return(
-                    <div className="topArtist">
+                    <div className="topArtist" key={id}>
                         <Link to="/">
                         <img
                         src={process.env.PUBLIC_URL + artistImg}

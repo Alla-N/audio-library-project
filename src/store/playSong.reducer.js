@@ -6,6 +6,9 @@ export const playSongReducer = (state={
             return {
                 ...state,
                 currentSong: [action.src],
+                currentArtistName: [action.artistName],
+                currentSongName: [action.songName],
+                currentSongId:[action.id]
             };
 
         default: return state; 
