@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{Component} from 'react';
 import {Route} from 'react-router-dom';
 import './App.css';
 import Header from './Header/Header';
@@ -9,7 +9,8 @@ import TopArtistsPage from './TopArtistsPage/TopArtistsPage';
 
 
 
-const App = () => {
+class App extends Component {
+  render(){
   return (
     <div className = 'App'>
       <Header/>
@@ -18,7 +19,8 @@ const App = () => {
       <Aside/>
       <Footer/>
     </div>
-  );
+  )
+  }
 }
 
 export default App;

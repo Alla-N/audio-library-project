@@ -86,7 +86,27 @@
 }
 
 .buttonLike {
-    width: 50px;
+    width: 60px;
+    line-height: 40px;
+    text-align: right;
+}
+
+.like {
+    width: 30px;
+    height: 40px;
+    line-height: 40px;
+    background: url(../../img/icon_liked.png);
+    background-repeat: no-repeat;
+    background-size: 24px;
+    background-position: 1px;
+    text-align: right;
+    vertical-align: middle;
+    float: left;
+}
+
+.dislike {
+    width: 30px;
+    height: 40px;
     line-height: 40px;
     background: url(../../img/icon_like.png);
     background-repeat: no-repeat;
@@ -94,6 +114,7 @@
     background-position: 1px;
     text-align: right;
     vertical-align: middle;
+    float: left;
 }
 
 .buttonDownload {

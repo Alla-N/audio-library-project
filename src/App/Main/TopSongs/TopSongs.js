@@ -1,9 +1,11 @@
-import React from 'react';
+import React, {Component} from 'react';
 import './TopSongs.css';
 import {Link} from 'react-router-dom';
 import {songs} from '../../songs';
+import TopSong from './TopSong/TopSong';
 
-const TopSongs = () => {
+class TopSongs extends Component {
+    render(){
     return(
         <div className='topSongs'>
             <h2>Топ композиций</h2>
@@ -20,26 +22,22 @@ const TopSongs = () => {
                     length
                 })=>{
                     return (
-                        <div className='topSong' key={id}>
-                            <div className="topSong_button buttonPlay"></div>
-                            <div className="topSong_title">
-                                <div className="artist_name">
-                                    <Link to={`/artists/${artistName}`}>{artistName}</Link> 
-                                </div>
-                                <div className="song_name">{songName}</div>
-                            </div>
-                            <div className="topSong_actions">
-                                <div className="topSong_button buttonLike">{likes}</div>
-                                <div className="topSong_button buttonDownload"></div>
-                                <div className="topSong_duration">{length}</div>
-                            </div>
-                        </div>
+                        <TopSong
+                            id={id}
+                            songName={songName}
+                            artistName={artistName}
+                            src={src}
+                            hashtag={hashtag}
+                            likes={likes}
+                            length={length}
+                        />
                     )
                 })
             }
             </div>
         </div>
     )
+    }
 }
 
 export default TopSongs;
