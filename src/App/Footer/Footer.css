@@ -20,7 +20,7 @@
     background-color: whitesmoke;
     display: none;
     align-items: center;
-    height: 30px;
+    height: 40px;
     overflow: hidden;
     position: absolute;
     bottom: 60px;
@@ -28,8 +28,22 @@
     right: 0;
 }
 
+.footer_buttonLike {
+    cursor: pointer;
+}
+
 .footer .mp3 .title {
-    margin: 10px 0;
+    margin: 0 10px;
+    line-height: 40px;
+}
+
+.footer .mp3 .title a {
+    color: black;
+    text-decoration: none;
+}
+
+.footer .mp3 .title a:hover {
+    text-decoration: underline;
 }
 
 .footer .mp3 .artist_name {

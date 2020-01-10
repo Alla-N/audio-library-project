@@ -7,6 +7,11 @@
     padding: 5px;
 }
 
+.logIn a {
+    text-decoration: none;
+    color:#9E9C9C;
+}
+
 
 .logIn button {
     width: 180px;

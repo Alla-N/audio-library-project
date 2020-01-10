@@ -29,12 +29,14 @@ class Footer extends Component {
         <div className = 'footer'>
             <div className="mp3">
                 <span className="title">
-                    <Link to={`/artists/${this.props.artistName}`}><span className="artist_name">{this.props.artistName}</span></Link>
+                    <span className="footer_buttonLike" onClick={()=>this.changeLikeButtonState()}>
+                        {this.props.isLiked ? <span className="like"></span> :  <span className="dislike"></span>}
+                    </span>
+                    <Link to={`/artist/${this.props.artistName}`}>
+                        <span className="artist_name">{this.props.artistName}</span>
+                    </Link>
                     <span className="song_name">{this.props.songName}</span>
-                    <span className="topSong_button buttonLike" onClick={()=>this.changeLikeButtonState()}>
-            {this.props.isLiked ? <span className="like"></span> :  <span className="dislike"></span>}
-
-            </span>
+                    
                 </span>
             </div>
             <audio src={this.props.currentSrc} controls autoplay="true"></audio>

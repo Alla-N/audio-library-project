@@ -1,0 +1,44 @@
+.userPage {
+    width: 70%;
+    background-color: white;
+    margin-right: 12px;
+    margin-top: 10px;
+    margin-bottom: 100px;
+    padding: 20px;
+}
+
+.authForm_input {
+    display: block;
+    width: 300px;
+    height: 40px;
+    border: 2px solid #E3E3E3;
+    border-radius: 20px;
+    padding: 10px;
+    margin-bottom: 20px;
+    font-size: 15px;
+    outline: none;
+}
+
+.authForm_button {
+    display: inline-block;
+    width: 160px;
+    height: 40px;
+    line-height: 33px;
+    border: 2px solid #E3E3E3;
+    border-radius: 20px;
+    margin-right: 20px;
+    margin-top: 20px;
+    color: #333;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+}
+
+.authForm_button:hover {
+    background-color: #fcee7e;
+}
+
+#authForm_buttonSubmit {
+    border: 2px solid #3e6594;
+    font-weight: 700;
+}

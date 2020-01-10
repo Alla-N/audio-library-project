@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import './Login.css';
 
 
@@ -6,7 +7,7 @@ import './Login.css';
 const Login = () => {
     return(
         <div className="logIn">
-            <button>Войти в аккаунт</button>
+            <Link to="/user"><button>Войти в аккаунт</button></Link>
         </div>
     )
 }
