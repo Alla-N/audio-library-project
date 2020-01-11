@@ -16,7 +16,7 @@ const TopArtistsPage = () => {
             })=>{
                 return(
                     <div className="topArtist">
-                        <Link to="/">
+                        <Link to={`/artist/${artistName}`}>
                         <img
                         src={process.env.PUBLIC_URL + artistImg}
                         alt="photoArtist"

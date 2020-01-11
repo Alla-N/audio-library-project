@@ -1,0 +1,31 @@
+.artistPage {
+    width: 70%;
+    background-color: white;
+    margin-right: 12px;
+    margin-top: 10px;
+    margin-bottom: 100px;
+    
+}
+
+.artistInfo {
+    border-bottom: 2px solid rgb(211, 209, 209);
+    padding: 30px;
+    overflow: hidden;
+    line-height: 160px;
+}
+
+.artistInfo h2 {
+    
+}
+
+.artistInfo img {
+    width: 200px;
+    border-radius: 50%;
+    float: left;
+    margin-right: 30px;
+    
+}
+
+.artistSongs {
+    padding: 10px 20px;
+}
