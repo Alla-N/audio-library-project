@@ -39,7 +39,7 @@ class Footer extends Component {
                     
                 </span>
             </div>
-            <audio src={this.props.currentSrc} controls autoplay="true"></audio>
+            <audio src={this.props.currentSrc} controls autoPlay></audio>
         </div>
     )
 }

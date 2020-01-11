@@ -8,7 +8,6 @@ import Footer from './Footer/Footer';
 import TopArtistsPage from './TopArtistsPage/TopArtistsPage';
 import User from './User/User';
 import Registration from './User/Registration/Registration';
-import Remind from './User/Remind/Remind';
 import ScrollToTopOnMount from './ScrollToTopOnMount';
 
 
@@ -23,7 +22,6 @@ class App extends Component {
       <Route path = '/artists' component = {TopArtistsPage}/>
       <Route path = '/user' component = {User}/>
       <Route path = '/registration' component = {Registration}/>
-      <Route path = '/remind' component = {Remind}/>
       <Aside/>
       <Footer/>
     </div>

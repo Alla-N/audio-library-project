@@ -7,8 +7,13 @@
     padding: 20px;
 }
 
-.authForm_input {
-    display: block;
+
+#authForm_button_reg {
+    border: 2px solid #3e6594;
+    font-weight: 700;
+}
+
+#input_reset_reg {
     width: 300px;
     height: 40px;
     border: 2px solid #E3E3E3;
@@ -17,41 +22,5 @@
     margin-bottom: 20px;
     font-size: 15px;
     outline: none;
-}
-
-.authForm_input:invalid {
-    border: 2px solid red;
-
-}
-
-.authForm_input:valid ~ label {
-    background: url(../../img/ok.png);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-
-}
-
-.authForm_button {
-    display: inline-block;
-    width: 160px;
-    height: 40px;
-    line-height: 33px;
-    border: 2px solid #E3E3E3;
-    border-radius: 20px;
-    margin-right: 20px;
-    margin-top: 20px;
-    color: #333;
-    text-decoration: none;
-    text-align: center;
     cursor: pointer;
-}
-
-.authForm_button:hover {
-    background-color: #fcee7e;
-}
-
-#authForm_buttonReg {
-    border: 2px solid #3e6594;
-    font-weight: 700;
 }
