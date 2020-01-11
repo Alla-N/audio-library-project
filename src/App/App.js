@@ -10,6 +10,7 @@ import User from './User/User';
 import Registration from './User/Registration/Registration';
 import Contacts from './Contacts/Contacts';
 import ArtistPage from './ArtistPage/ArtistPage';
+import SongsPage from './SongsPage/SongsPage';
 import ScrollToTopOnMount from './ScrollToTopOnMount';
 
 
@@ -22,6 +23,7 @@ class App extends Component {
       <Header/>
       <Route exact path="/" component={Main}/>
       <Route path = '/artists' component = {TopArtistsPage}/>
+      <Route path = '/songs' component = {SongsPage}/>
       <Route path = '/user' component = {User}/>
       <Route path = '/registration' component = {Registration}/>
       <Route path = '/contacts' component = {Contacts}/>

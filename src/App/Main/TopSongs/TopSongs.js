@@ -5,11 +5,13 @@ import {songs} from '../../songs';
 import TopSong from './TopSong/TopSong';
 
 class TopSongs extends Component {
+    
     render(){
+
     return(
         <div className='topSongs'>
             <h2>Топ композиций</h2>
-            <Link to="/top_songs">См. все</Link>
+            <Link to="/songs">См. все</Link>
             <div className='topSongsBlock'>
             {
                 songs.sort(function(a,b){return b.likes-a.likes}).slice(0,6).map(({
@@ -41,3 +43,5 @@ class TopSongs extends Component {
 }
 
 export default TopSongs;
+
+

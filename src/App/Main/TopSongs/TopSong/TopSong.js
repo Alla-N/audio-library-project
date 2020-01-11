@@ -40,7 +40,7 @@ class TopSong extends Component {
         <div className="topSong_button buttonPlay" onClick={()=>this.startPlaySong()}></div>
         <div className="topSong_title">
             <div className="artist_name">
-                <Link to={`/artists/${artistName}`}>{artistName}</Link>
+                <Link to={`/artist/${artistName}`}>{artistName}</Link>
             </div>
             <div className="song_name">{songName}</div>
         </div>

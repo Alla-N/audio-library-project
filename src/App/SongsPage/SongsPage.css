@@ -1,0 +1,41 @@
+.songPage {
+    width: 70%;
+    background-color: white;
+    margin-right: 12px;
+    margin-top: 10px;
+    padding: 10px 20px;
+    margin-bottom: 100px;
+}
+
+.songPage h2 {
+    text-indent: 20px;
+}
+
+.pagination_item {
+    list-style: none;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border: 1px solid black;
+    text-align: center;
+    margin-left: -1px;
+    cursor: pointer;
+}
+
+.pagination_item_current {
+    list-style: none;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border: 1px solid black;
+    text-align: center;
+    margin-left: -1px;
+    cursor: pointer;
+    background-color: greenyellow;
+    font-weight: 700;
+}
+
+
+.pagination_item:hover {
+    background-color: gainsboro;
+}
