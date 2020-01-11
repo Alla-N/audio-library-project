@@ -1,16 +1,17 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import './Aside.css';
-import newSongs from './newSongs.png';
-import collections from './collections.png';
-import genres from './genres.png';
-import artists from './artists.png';
-import top from './top.png';
-import retro from './retro.png';
-import cool from './cool.png';
-import winter from './winter.png';
-import newYear from './newYear.png';
-import best from './best.png';
-import selection from './selection.png';
+import newSongs from './img/newSongs.png';
+import collections from './img/collections.png';
+import genres from './img/genres.png';
+import artists from './img/artists.png';
+import top from './img/top.png';
+import retro from './img/retro.png';
+import cool from './img/cool.png';
+import winter from './img/winter.png';
+import newYear from './img/newYear.png';
+import best from './img/best.png';
+import selection from './img/selection.png';
 
 
 const Aside = () => {
@@ -76,6 +77,9 @@ const Aside = () => {
                 <button>#house</button>
                 <button>#метал</button>
                 <button>#еще...</button>
+            </div>
+            <div className="contactsButton">
+                <Link to="/contacts">Контакты</Link>
             </div>
 
         </div>

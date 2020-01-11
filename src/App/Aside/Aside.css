@@ -64,3 +64,33 @@
     box-shadow: 3px 3px 5px grey;
 }
 
+
+.contactsButton {
+    margin-top: 20px;
+    padding: 10px;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 1px solid grey;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.contactsButton:hover {
+    box-shadow: 10px 10px 10px grey;
+    border: 1px solid black;
+}
+
+.contactsButton a {
+    display: block;
+    text-decoration: none;
+    font-size: 17px;
+    color: grey;
+}
+
+.contactsButton:hover a {
+    color: black;
+}
+
+
+
