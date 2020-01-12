@@ -14,7 +14,6 @@ class SongsPage extends Component {
             currentPage: 1,
             songsPerPag: 8,
         };
-        this.input = React.createRef();
 
     }
 
@@ -56,7 +55,7 @@ class SongsPage extends Component {
 
         this.props.addNextSongId (currentAlbum, nextIndex);
 
-        let isSongLastOnPage = nextIndex > this.state.currentPage*this.state.songsPerPag || nextIndex == 0;
+        let isSongLastOnPage = nextIndex > this.state.currentPage*this.state.songsPerPag || songIndex == 0;
 
         if(isSongLastOnPage){
             let pages = document.getElementsByTagName('li');
@@ -81,7 +80,7 @@ class SongsPage extends Component {
         if(this.state.currentPage * this.state.songsPerPag<songs.length){
             indexOfLastSong = this.state.currentPage * this.state.songsPerPag;
         }else{
-            indexOfLastSong = this.state.length
+            indexOfLastSong = songs.length;
         }
 
         const indexOfFirstSong = this.state.currentPage * this.state.songsPerPag - this.state.songsPerPag;
