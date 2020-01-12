@@ -147,7 +147,7 @@ class Registration extends Component {
                 type="text" 
                 id="input_name_reg"
                 name="name"
-                pattern="^[A-Za-z]+\s[A-Za-z]+$"
+                pattern="^[A-Za-z ]+$"
                 className="authForm_input" 
                 placeholder="Введите имя"
                 required>

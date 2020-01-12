@@ -12,11 +12,9 @@ class ArtistPage extends Component {
         let artist;
         
         for(var i=0; i<songs.length; i++){
-        if(songs[i].artistName==name){
+        if(songs[i].artistName===name){
             artist = songs[i];
             break;
-        }else{
-            // artist = songs[0]
         }
     }
 

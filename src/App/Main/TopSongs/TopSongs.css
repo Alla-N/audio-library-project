@@ -45,16 +45,37 @@
 }
 
 .buttonPlay {
+    width: 40px;
+    height: 40px;
     max-width: 10%;
+    cursor: pointer;
+}
+
+.play {
+    width: 100%;
+    height: 100%;
     border: 1px solid grey;
     border-radius: 50%;
     background: url(../../img/play.png);
     background-repeat: no-repeat;
     background-position: 8px;
+    opacity: 0.6;
 }
 
-.buttonPlay:hover {
+.play:hover {
+    opacity: 1;
     border: 1px solid  black;
+}
+
+.pause {
+    width: 100%;
+    height: 100%;
+    border: 1px solid black;
+    border-radius: 50%;
+    background: url(../../img/pause.png);
+    background-repeat: no-repeat;
+    background-position: 5px;
+    opacity: 1;
 }
 
 .topSong_title {
@@ -123,6 +144,12 @@
     background-size: 24px;
     background-position: center;
     border-radius: 50%;
+}
+
+.buttonDownload a {
+    display: block;
+    width: 100%;
+    height: 100%;
 }
 
 .buttonDownload:hover {

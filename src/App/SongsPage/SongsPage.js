@@ -39,8 +39,6 @@ class SongsPage extends Component {
     }
 
 
-
-
     render(){
         const indexOfLastSong = this.state.currentPage * this.state.songsPerPag;
         const indexOfFirstSong = indexOfLastSong - this.state.songsPerPag;
@@ -51,8 +49,7 @@ class SongsPage extends Component {
 
         for (let i=1; i<=totalPage; i++){
             pageNumbers.push(i);
-        }
-        
+        }       
 
         return(
             <div className="songPage">

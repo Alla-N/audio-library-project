@@ -122,17 +122,17 @@ export const songs = [
 ,
     {
         id: 12,
-        songName: "Ocean Eyes",
+        songName: "Bored",
         artistName: "Billie Eilish",
-        src: "/songs/Billie Eilish - Ocean Eyes.mp3",
+        src: "/songs/Billie Eilish - Bored.mp3",
         hashtag:"pop",
         artistImg:"/artistsImg/BillieEilish.jpg",
-        likes: 2,
-        length: '03.20',
+        likes: 4,
+        length: '03.00',
     }
 ,
     {
-        id: 12,
+        id: 13,
         songName: "My Boy",
         artistName: "Billie Eilish",
         src: "/songs/Billie Eilish - My Boy.mp3",
@@ -143,7 +143,7 @@ export const songs = [
     }
 ,
     {
-        id: 13,
+        id: 14,
         songName: "Vislovo",
         artistName: "Время и Стекло",
         src: "songs/Время и Стекло - Vislovo.mp3",
@@ -154,7 +154,7 @@ export const songs = [
     }
 ,
     {
-        id: 14,
+        id: 15,
         songName: "Тролль",
         artistName: "Время и Стекло",
         src: "/songs/Время и Стекло - Тролль.mp3",
@@ -165,7 +165,7 @@ export const songs = [
     }
 ,
     {
-        id: 15,
+        id: 16,
         songName: "ТОП",
         artistName: "Время и Стекло",
         src: "/songs/Время и Стекло - ТОП.mp3",
@@ -176,7 +176,7 @@ export const songs = [
     }
 ,
     {
-        id: 16,
+        id: 17,
         songName: "Финальные Титры",
         artistName: "Время и Стекло",
         src: "/songs/Время и Стекло - Финальные Титры.mp3",
@@ -187,7 +187,7 @@ export const songs = [
     }
 ,
     {
-        id: 17,
+        id: 18,
         songName: "Зеркала",
         artistName: "Ани Лорак",
         src: "/songs/Ани Лорак feat. Григорий Лепс - Зеркала.mp3",
@@ -198,7 +198,7 @@ export const songs = [
     }
     ,
     {
-        id: 18,
+        id: 19,
         songName: "Сон",
         artistName: "Ани Лорак",
         src: "/songs/Ани Лорак - Сон.mp3",
@@ -209,7 +209,7 @@ export const songs = [
     }
     ,
     {
-        id: 19,
+        id: 20,
         songName: "Новый Бывший",
         artistName: "Ани Лорак",
         src: "/songs/Ани Лорак - Новый Бывший.mp3",
@@ -220,7 +220,7 @@ export const songs = [
     }
     ,
     {
-        id: 20,
+        id: 21,
         songName: "Сопрано",
         artistName: "Ани Лорак",
         src: "/songs/Мот feat. Ани Лорак - Сопрано.mp3",
@@ -231,7 +231,7 @@ export const songs = [
     }
     ,
     {
-        id: 21,
+        id: 22,
         songName: "Я Тебя Ждала",
         artistName: "Ани Лорак",
         src: "/songs/Ани Лорак - Я Тебя Ждала.mp3",
@@ -242,7 +242,7 @@ export const songs = [
     }
     ,
     {
-        id: 22,
+        id: 23,
         songName: "Крошка Моя",
         artistName: "Руки Вверх",
         src: "/songs/Руки Вверх - Крошка Моя.mp3",
@@ -253,7 +253,7 @@ export const songs = [
     }
     ,
     {
-        id: 23,
+        id: 24,
         songName: "Он Тебя Целует",
         artistName: "Руки Вверх",
         src: "/songs/Руки Вверх - Он Тебя Целует.mp3",
@@ -264,7 +264,7 @@ export const songs = [
     }
     ,
     {
-        id: 24,
+        id: 25,
         songName: "18 Мне Уже",
         artistName: "Руки Вверх",
         src: "/songs/Руки Вверх - 18 Мне Уже.mp3",
@@ -275,7 +275,7 @@ export const songs = [
     }
     ,
     {
-        id: 25,
+        id: 26,
         songName: "Доброй, Нежной, Ласковой",
         artistName: "Руки Вверх",
         src: "/songs/Руки Вверх - Доброй, Нежной, Ласковой.mp3",
@@ -286,7 +286,7 @@ export const songs = [
     }
     ,
     {
-        id: 26,
+        id: 27,
         songName: "Когда твоя девушка больна",
         artistName: "Виктор Цой",
         src: "/songs/Виктор Цой - Когда твоя девушка больна.mp3",
@@ -297,7 +297,7 @@ export const songs = [
     }
     ,
     {
-        id: 27,
+        id: 28,
         songName: "Группа крови",
         artistName: "Виктор Цой",
         src: "/songs/Виктор Цой - Группа крови.mp3",
@@ -308,7 +308,7 @@ export const songs = [
     }
     ,
     {
-        id: 28,
+        id: 29,
         songName: "Пачка сигарет",
         artistName: "Виктор Цой",
         src: "/songs/Виктор Цой - Пачка сигарет.mp3",
@@ -319,7 +319,7 @@ export const songs = [
     }
     ,
     {
-        id: 29,
+        id: 30,
         songName: "Звезда по имени Солнце",
         artistName: "Виктор Цой",
         src: "/songs/Виктор Цой - Звезда по имени Солнце.mp3",
@@ -330,7 +330,7 @@ export const songs = [
     }
     ,
     {
-        id: 30,
+        id: 31,
         songName: "Кукушка",
         artistName: "Виктор Цой",
         src: "/songs/Виктор Цой - Кукушка.mp3",
@@ -341,7 +341,7 @@ export const songs = [
     }
     ,
     {
-        id: 31,
+        id: 32,
         songName: "Восьмиклассница",
         artistName: "Виктор Цой",
         src: "/songs/Виктор Цой - Восьмиклассница.mp3",
@@ -352,7 +352,7 @@ export const songs = [
     }
     ,
     {
-        id: 32,
+        id: 33,
         songName: "Вечная Призрачная Встречная",
         artistName: "Би-2",
         src: "/songs/Би-2 - Вечная Призрачная Встречная.mp3",
@@ -363,7 +363,7 @@ export const songs = [
     }
     ,
     {
-        id: 33,
+        id: 34,
         songName: "Моя Любовь",
         artistName: "Би-2",
         src: "/songs/Би-2 - Моя Любовь.mp3",
@@ -374,7 +374,7 @@ export const songs = [
     }
     ,
     {
-        id: 34,
+        id: 35,
         songName: "Чёрное Солнце",
         artistName: "Би-2",
         src: "/songs/Би-2 - Чёрное Солнце.mp3",
@@ -385,7 +385,7 @@ export const songs = [
     }
     ,
     {
-        id: 35,
+        id: 36,
         songName: "High Off Yo",
         artistName: "Sasha Fashion",
         src: "/songs/Fly & Sasha Fashion - High Off Yo.mp3",
@@ -396,7 +396,7 @@ export const songs = [
     }
     ,
     {
-        id: 36,
+        id: 37,
         songName: "Без Тебя",
         artistName: "Стас Михайлов",
         src: "/songs/Стас Михайлов - Без Тебя.mp3",
@@ -407,7 +407,7 @@ export const songs = [
     }
     ,
     {
-        id: 37,
+        id: 38,
         songName: "Как Долго Я Тебя Искал",
         artistName: "Алексей Брянцев",
         src: "/public/songs/Алексей Брянцев - Как Долго Я Тебя Искал.mp3",

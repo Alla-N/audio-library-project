@@ -18,6 +18,25 @@ class Footer extends Component {
         }
     }
 
+    componentDidMount = () => {
+        let song = document.getElementsByTagName('audio');
+
+        song[0].addEventListener('play',() => { 
+            this.props.play(true);
+            
+        },false);
+
+        song[0].addEventListener('pause',() => { 
+            this.props.pause(false);
+        },false);
+
+        song[0].addEventListener('ended',() => { 
+            console.log('Песня закончилась?', song[0].ended);
+            // this.props.next(this.props.src, this.props.artistName, this.props.songName, this.props.id);
+        },false);
+    }
+    
+
     render(){
 
         if(this.props.currentSrc){
@@ -51,6 +70,7 @@ const mapStateToProps = (state) => ({
     songName: state.playSong.currentSongName,
     isLiked: state.likedSongs[state.playSong.currentSongId],
     id: state.playSong.currentSongId,
+    isPlaying: state.playSong.isPlaying,
 });
 
 const mapDispatchToProps = (dispatch) =>({
@@ -58,12 +78,27 @@ const mapDispatchToProps = (dispatch) =>({
     addLike: (id) => dispatch({
         type:'LIKE',
         id:id,
-        }),
+    }),
         
     addDislike: (id) => dispatch({
         type:'DISLIKE',
         id:id,
-        }),
-    });
+    }),
+    play: (isPlaying) => dispatch ({
+        type: 'PLAY',
+        isPlaying: isPlaying,
+    }),
+    pause: (isPlaying) => dispatch ({
+        type: 'PAUSE',
+        isPlaying: isPlaying,
+    }),
+    next: (src, artistName, songName, SongId) => dispatch ({
+        type: 'PLAY_SONG',
+        src:src,
+        artistName:artistName,
+        songName:songName,
+        id:SongId,
+    }),
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Footer);
