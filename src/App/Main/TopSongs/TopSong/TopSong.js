@@ -78,7 +78,7 @@ class TopSong extends Component {
         <div className="topSong_actions">
             <div className="topSong_button buttonLike" onClick={()=>this.changeLikeButtonState()}>
             {isLiked ? <div className="like"></div> :  <div className="dislike"></div>}
-            {likes}
+            {isLiked ? likes+1 : likes}
             </div>
             <div className="topSong_button buttonDownload"><a href={src} download> </a></div>
             <div className="topSong_duration">{length}</div>

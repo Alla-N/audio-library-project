@@ -410,7 +410,7 @@ export const songs = [
         id: 38,
         songName: "Как Долго Я Тебя Искал",
         artistName: "Алексей Брянцев",
-        src: "/public/songs/Алексей Брянцев - Как Долго Я Тебя Искал.mp3",
+        src: "/songs/Алексей Брянцев - Как Долго Я Тебя Искал.mp3",
         hashtag:"шансон",
         artistImg:"/artistsImg/АлексейБрянцев.jpg",
         likes: 3,

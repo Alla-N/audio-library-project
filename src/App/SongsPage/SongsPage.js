@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import './SongsPage.css';
+import {connect} from 'react-redux';
 import TopSong from '../Main/TopSongs/TopSong/TopSong';
 import ScrollToTopOnMount from '../ScrollToTopOnMount';
 import {songs} from '../songs';
@@ -13,6 +14,7 @@ class SongsPage extends Component {
             currentPage: 1,
             songsPerPag: 8,
         };
+        this.input = React.createRef();
 
     }
 
@@ -38,12 +40,54 @@ class SongsPage extends Component {
 
     }
 
+    componentWillReceiveProps (nextProps) {
+
+        let currentAlbum = songs;
+        let songId = nextProps.currentSongId;
+        let songIndex = currentAlbum.findIndex(element => {return element.id == songId});
+        let nextIndex;
+
+        if(songIndex < currentAlbum.length-1){
+            nextIndex = songIndex+1
+        }else{
+            nextIndex = 0
+        }
+
+
+        this.props.addNextSongId (currentAlbum, nextIndex);
+
+        let isSongLastOnPage = nextIndex > this.state.currentPage*this.state.songsPerPag || nextIndex == 0;
+
+        if(isSongLastOnPage){
+            let pages = document.getElementsByTagName('li');
+            let nextPage;
+
+            if(this.state.currentPage < pages.length){
+                nextPage = this.state.currentPage;
+                pages[nextPage].click();
+            }else{
+                nextPage = 0;
+                pages[nextPage].click();
+            }
+
+            
+        }
+    }
+
 
     render(){
-        const indexOfLastSong = this.state.currentPage * this.state.songsPerPag;
-        const indexOfFirstSong = indexOfLastSong - this.state.songsPerPag;
+        let indexOfLastSong;
+
+        if(this.state.currentPage * this.state.songsPerPag<songs.length){
+            indexOfLastSong = this.state.currentPage * this.state.songsPerPag;
+        }else{
+            indexOfLastSong = this.state.length
+        }
+
+        const indexOfFirstSong = this.state.currentPage * this.state.songsPerPag - this.state.songsPerPag;
+
         const currentSongs = songs.slice(indexOfFirstSong, indexOfLastSong );
-        const totalPage = songs.length/this.state.songsPerPag;
+        const totalPage = Math.round(songs.length/this.state.songsPerPag);
 
         const pageNumbers = [];
 
@@ -85,6 +129,7 @@ class SongsPage extends Component {
                         <li 
                         id={number} 
                         key={number} 
+                        ref={this.input}
                         className="pagination_item" 
                         onClick={()=>this.Paginate(number)}>
                             {number}
@@ -103,4 +148,16 @@ class SongsPage extends Component {
     }
 }
 
-export default SongsPage;
+const mapStateToProps = (state) =>({
+    currentSongId: state.playSong.currentSongId,
+})
+
+const mapDispatchToProps = (dispatch) =>({
+    addNextSongId: (album,index) => dispatch({
+        type:'ADD_NEXT_SONG',
+        album:album,
+        nextIndex:index,
+        }),
+})
+
+export default connect(mapStateToProps, mapDispatchToProps) (SongsPage);

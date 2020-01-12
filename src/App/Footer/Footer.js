@@ -31,8 +31,13 @@ class Footer extends Component {
         },false);
 
         song[0].addEventListener('ended',() => { 
+            let song = document.getElementsByTagName('audio');
             console.log('Песня закончилась?', song[0].ended);
-            // this.props.next(this.props.src, this.props.artistName, this.props.songName, this.props.id);
+
+            let album = this.props.currentAlbum[0];
+            let index = this.props.nextIndex;
+
+            this.props.next(album[index].src, album[index].artistName, album[index].songName, album[index].id);
         },false);
     }
     
@@ -71,6 +76,8 @@ const mapStateToProps = (state) => ({
     isLiked: state.likedSongs[state.playSong.currentSongId],
     id: state.playSong.currentSongId,
     isPlaying: state.playSong.isPlaying,
+    currentAlbum: state.currentAlbum.album,
+    nextIndex: state.currentAlbum.nextIndex,
 });
 
 const mapDispatchToProps = (dispatch) =>({
