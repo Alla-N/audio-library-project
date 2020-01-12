@@ -14,10 +14,7 @@ class SongsPage extends Component {
             currentPage: 1,
             songsPerPag: 8,
         };
-
     }
-
-
 
     Paginate = (num) => {
         this.setState({ 
@@ -31,16 +28,41 @@ class SongsPage extends Component {
     }
 
 
-    ChangeColorNum = (event) => {
-        
-        let current = document.getElementsByClassName("pagination_item_current");
-        current[0].className = current[0].className.replace("pagination_item_current", "pagination_item");
-        event.target.className = 'pagination_item_current';
 
+    ChangeColorNum = (event) => {  
+        if(event.target.tagName === 'LI'){
+            let current = document.getElementsByClassName("pagination_item_current");
+            current[0].className = current[0].className.replace("pagination_item_current", "pagination_item");
+            event.target.className = 'pagination_item_current';
+        }
+    }
+
+    TogglePage = (currentSongIndex) => {
+        let lastIndexOnPage;
+
+        if(this.state.currentPage * this.state.songsPerPag<songs.length){
+            lastIndexOnPage = this.state.currentPage * this.state.songsPerPag;
+        }else{
+            lastIndexOnPage = 0;
+        }
+
+        let isSongLastOnPage = (currentSongIndex ==  lastIndexOnPage);
+
+        if(isSongLastOnPage){
+            let pages = document.getElementsByTagName('li');
+            let nextClick;
+
+            if(this.state.currentPage < pages.length){
+                nextClick = this.state.currentPage;
+                pages[nextClick].click();
+            }else{
+                nextClick = 0;
+                pages[nextClick].click();
+            }           
+        }
     }
 
     componentWillReceiveProps (nextProps) {
-
         let currentAlbum = songs;
         let songId = nextProps.currentSongId;
         let songIndex = currentAlbum.findIndex(element => {return element.id == songId});
@@ -52,47 +74,30 @@ class SongsPage extends Component {
             nextIndex = 0
         }
 
-
         this.props.addNextSongId (currentAlbum, nextIndex);
 
-        let isSongLastOnPage = nextIndex > this.state.currentPage*this.state.songsPerPag || songIndex == 0;
-
-        if(isSongLastOnPage){
-            let pages = document.getElementsByTagName('li');
-            let nextPage;
-
-            if(this.state.currentPage < pages.length){
-                nextPage = this.state.currentPage;
-                pages[nextPage].click();
-            }else{
-                nextPage = 0;
-                pages[nextPage].click();
-            }
-
-            
-        }
+        this.TogglePage(songIndex);    
     }
 
+    render(){  
+            let indexOfLastSong;
+    
+            if(this.state.currentPage * this.state.songsPerPag<songs.length){
+                indexOfLastSong = this.state.currentPage * this.state.songsPerPag;
+            }else{
+                indexOfLastSong = songs.length;
+            }
+    
+            let indexOfFirstSong = this.state.currentPage * this.state.songsPerPag - this.state.songsPerPag;
+            let currentSongs = songs.sort(function(a,b){return b.likes-a.likes}).slice(indexOfFirstSong, indexOfLastSong );
+            let totalPage = Math.round(songs.length/this.state.songsPerPag);
+    
+            let pageNumbers = [];
+    
+            for (let i=1; i<=totalPage; i++){
+                pageNumbers.push(i);
+            } 
 
-    render(){
-        let indexOfLastSong;
-
-        if(this.state.currentPage * this.state.songsPerPag<songs.length){
-            indexOfLastSong = this.state.currentPage * this.state.songsPerPag;
-        }else{
-            indexOfLastSong = songs.length;
-        }
-
-        const indexOfFirstSong = this.state.currentPage * this.state.songsPerPag - this.state.songsPerPag;
-
-        const currentSongs = songs.slice(indexOfFirstSong, indexOfLastSong );
-        const totalPage = Math.round(songs.length/this.state.songsPerPag);
-
-        const pageNumbers = [];
-
-        for (let i=1; i<=totalPage; i++){
-            pageNumbers.push(i);
-        }       
 
         return(
             <div className="songPage">
