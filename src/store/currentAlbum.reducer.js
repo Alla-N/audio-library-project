@@ -4,11 +4,14 @@ export const currentAlbumReducer = (state={
 
     switch(action.type) { 
     
-    case 'ADD_NEXT_SONG': 
+    case 'ADD_ALBUM': 
     return { 
         ...state,
         album:[action.album],
-        nextIndex:[action.nextIndex],
+        firstIndexes: [action.firstIndexes],
+        lastIndexes: [action.lastIndexes],
+        currentPage: [action.currentPage],
+        pagesLength: [action.pagesLength],
     }; 
     
     default: return state; } 

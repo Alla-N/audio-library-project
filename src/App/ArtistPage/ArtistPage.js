@@ -8,23 +8,10 @@ import {songs} from '../songs';
 
 class ArtistPage extends Component {
 
-    componentWillReceiveProps (nextProps) {
-
-        let currentAlbum = songs.filter(element=>element.artistName === this.props.match.params.artistName )
-        let songId = nextProps.currentSongId;
-        let songIndex = currentAlbum.findIndex(element => {return element.id == songId});
-        let nextIndex;
-
-        if(songIndex < currentAlbum.length-1){
-            nextIndex = songIndex+1
-        }else{
-            nextIndex = 0
-        }
-
-
-        this.props.addNextSongId (currentAlbum, nextIndex);
+    componentDidMount = () => {
+        let currentAlbum = songs.filter(element=>element.artistName === this.props.match.params.artistName );
+        this.props.addAlbum (currentAlbum);
     }
-
 
 
 
@@ -72,6 +59,7 @@ class ArtistPage extends Component {
                 })=>{
                     return (
                         <TopSong
+                            key={id}
                             id={id}
                             songName={songName}
                             artistName={artistName}
@@ -94,10 +82,9 @@ const mapStateToProps = (state) =>({
 })
 
 const mapDispatchToProps = (dispatch) =>({
-    addNextSongId: (album,index) => dispatch({
-        type:'ADD_NEXT_SONG',
+    addAlbum: (album) => dispatch({
+        type:'ADD_ALBUM',
         album:album,
-        nextIndex:index,
         }),
 })
 

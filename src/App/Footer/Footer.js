@@ -18,7 +18,55 @@ class Footer extends Component {
         }
     }
 
-    componentDidMount = () => {
+    ClickPage = (index) => {
+        if(this.props.lastIndexes[0].includes(index)){
+            let pages = document.getElementsByTagName('li');
+            let nextClick;               
+                
+            if(this.props.currentPage[0] < this.props.pagesLength[0]){
+                nextClick = this.props.currentPage[0];
+                pages[nextClick].click();
+            }else{
+                nextClick = 0;
+                pages[nextClick].click();
+            } 
+        }
+    }
+
+    ClickPagePrev = (index) => {
+        if(this.props.firstIndexes[0].includes(index)){
+            let pages = document.getElementsByTagName('li');
+            let nextClick;               
+                
+            if(this.props.currentPage[0] > 1){
+                nextClick = this.props.currentPage[0]-2;
+                pages[nextClick].click();
+            }else{
+                nextClick = this.props.pagesLength[0]-1;
+                pages[nextClick].click();
+            } 
+        }
+    }
+
+
+    PrevSongPlay = () => {
+            let album = this.props.currentAlbum[0];
+            let index = album.findIndex(element => {return element.id == this.props.id});
+            let prevIndex = index>0 ? index-1 : album.length-1;
+            this.props.next(album[prevIndex].src, album[prevIndex].artistName, album[prevIndex].songName, album[prevIndex].id);
+
+            this.ClickPagePrev(index);
+    }
+
+    NextSongPlay = () => {
+        let album = this.props.currentAlbum[0];
+        let index = album.findIndex(element => {return element.id == this.props.id});
+        let nextIndex = index<album.length-1 ? index+1 : 0;
+        this.props.next(album[nextIndex].src, album[nextIndex].artistName, album[nextIndex].songName, album[nextIndex].id);
+        this.ClickPage(index);
+    }
+
+    componentDidMount(){
         let song = document.getElementsByTagName('audio');
 
         song[0].addEventListener('play',() => { 
@@ -31,13 +79,18 @@ class Footer extends Component {
         },false);
 
         song[0].addEventListener('ended',() => { 
-            let song = document.getElementsByTagName('audio');
-            console.log('Песня закончилась?', song[0].ended);
-
             let album = this.props.currentAlbum[0];
-            let index = this.props.nextIndex;
+            let index = album.findIndex(element => {return element.id == this.props.id});
+            let nextIndex = index<album.length-1 ? index+1 : 0;
 
-            this.props.next(album[index].src, album[index].artistName, album[index].songName, album[index].id);
+            console.log(this.props.lastIndexes);
+            console.log(this.props.currentPage);
+            console.log(this.props.pagesLength);
+
+            this.props.next(album[nextIndex].src, album[nextIndex].artistName, album[nextIndex].songName, album[nextIndex].id);
+            
+            this.ClickPage(index);
+
         },false);
     }
     
@@ -53,14 +106,15 @@ class Footer extends Component {
         <div className = 'footer'>
             <div className="mp3">
                 <span className="title">
-                    <span className="footer_buttonLike" onClick={()=>this.changeLikeButtonState()}>
+                    <span className="footer_buttonLike" onClick={this.changeLikeButtonState}>
                         {this.props.isLiked ? <span className="like"></span> :  <span className="dislike"></span>}
                     </span>
+                    <button className="button_prev" onClick={this.PrevSongPlay}></button>
+                    <button className="button_next" onClick={this.NextSongPlay}></button>
                     <Link to={`/artist/${this.props.artistName}`}>
                         <span className="artist_name">{this.props.artistName}</span>
                     </Link>
-                    <span className="song_name">{this.props.songName}</span>
-                    
+                    <span className="song_name">{this.props.songName}</span>       
                 </span>
             </div>
             <audio src={this.props.currentSrc} controls autoPlay></audio>
@@ -77,7 +131,10 @@ const mapStateToProps = (state) => ({
     id: state.playSong.currentSongId,
     isPlaying: state.playSong.isPlaying,
     currentAlbum: state.currentAlbum.album,
-    nextIndex: state.currentAlbum.nextIndex,
+    firstIndexes: state.currentAlbum.firstIndexes,
+    lastIndexes: state.currentAlbum.lastIndexes,
+    currentPage: state.currentAlbum.currentPage,
+    pagesLength: state.currentAlbum.pagesLength,
 });
 
 const mapDispatchToProps = (dispatch) =>({

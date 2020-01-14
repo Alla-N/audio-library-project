@@ -29,7 +29,7 @@ class User extends Component {
                 type="email" 
                 id="input_email" 
                 name="email" 
-                autocomplete="on" 
+                autoComplete="on" 
                 className="authForm_input"  placeholder="Email"
                 required>
                 </input>
