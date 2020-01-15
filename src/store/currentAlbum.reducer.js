@@ -1,4 +1,6 @@
 export const currentAlbumReducer = (state={
+    currentPage: 1,
+    songsPerPag: 10,
 
 }, action) => {
 
@@ -8,11 +10,16 @@ export const currentAlbumReducer = (state={
     return { 
         ...state,
         album:[action.album],
+    }; 
+
+    case 'ADD_ALBUM_DETAILS': 
+    return { 
+        ...state,
         firstIndexes: [action.firstIndexes],
         lastIndexes: [action.lastIndexes],
         currentPage: [action.currentPage],
         pagesLength: [action.pagesLength],
-    }; 
+    };
     
     default: return state; } 
 }

@@ -9,11 +9,11 @@ class Footer extends Component {
 
         if(this.props.isLiked){
         
-        this.props.addDislike(this.props.id);
+        this.props.addDislike(this.props.currentSongId);
         
         }else{
         
-        this.props.addLike(this.props.id);
+        this.props.addLike(this.props.currentSongId);
 
         }
     }
@@ -22,13 +22,14 @@ class Footer extends Component {
         if(this.props.lastIndexes[0].includes(index)){
             let pages = document.getElementsByTagName('li');
             let nextClick;               
-                
-            if(this.props.currentPage[0] < this.props.pagesLength[0]){
-                nextClick = this.props.currentPage[0];
-                pages[nextClick].click();
-            }else{
-                nextClick = 0;
-                pages[nextClick].click();
+            if(pages[0]){
+                if(this.props.currentPage[0] < this.props.pagesLength[0]){
+                    nextClick = this.props.currentPage[0];
+                    pages[nextClick].click();
+                }else{
+                    nextClick = 0;
+                    pages[nextClick].click();
+                }
             } 
         }
     }
@@ -37,21 +38,23 @@ class Footer extends Component {
         if(this.props.firstIndexes[0].includes(index)){
             let pages = document.getElementsByTagName('li');
             let nextClick;               
-                
-            if(this.props.currentPage[0] > 1){
-                nextClick = this.props.currentPage[0]-2;
-                pages[nextClick].click();
-            }else{
-                nextClick = this.props.pagesLength[0]-1;
-                pages[nextClick].click();
-            } 
+            
+            if(pages[0]){
+                if(this.props.currentPage[0] > 1){
+                    nextClick = this.props.currentPage[0]-2;
+                    pages[nextClick].click();
+                }else{
+                    nextClick = this.props.pagesLength[0]-1;
+                    pages[nextClick].click();
+                } 
+            }
         }
     }
 
 
     PrevSongPlay = () => {
             let album = this.props.currentAlbum[0];
-            let index = album.findIndex(element => {return element.id == this.props.id});
+            let index = album.findIndex(element => {return element.id == this.props.currentSongId});
             let prevIndex = index>0 ? index-1 : album.length-1;
             this.props.next(album[prevIndex].src, album[prevIndex].artistName, album[prevIndex].songName, album[prevIndex].id);
 
@@ -60,7 +63,7 @@ class Footer extends Component {
 
     NextSongPlay = () => {
         let album = this.props.currentAlbum[0];
-        let index = album.findIndex(element => {return element.id == this.props.id});
+        let index = album.findIndex(element => {return element.id == this.props.currentSongId});
         let nextIndex = index<album.length-1 ? index+1 : 0;
         this.props.next(album[nextIndex].src, album[nextIndex].artistName, album[nextIndex].songName, album[nextIndex].id);
         this.ClickPage(index);
@@ -80,7 +83,7 @@ class Footer extends Component {
 
         song[0].addEventListener('ended',() => { 
             let album = this.props.currentAlbum[0];
-            let index = album.findIndex(element => {return element.id == this.props.id});
+            let index = album.findIndex(element => {return element.id == this.props.currentSongId});
             let nextIndex = index<album.length-1 ? index+1 : 0;
 
             console.log(this.props.lastIndexes);
@@ -128,7 +131,7 @@ const mapStateToProps = (state) => ({
     artistName: state.playSong.currentArtistName,
     songName: state.playSong.currentSongName,
     isLiked: state.likedSongs[state.playSong.currentSongId],
-    id: state.playSong.currentSongId,
+    currentSongId: state.playSong.currentSongId,
     isPlaying: state.playSong.isPlaying,
     currentAlbum: state.currentAlbum.album,
     firstIndexes: state.currentAlbum.firstIndexes,

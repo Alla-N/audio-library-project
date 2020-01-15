@@ -12,7 +12,6 @@ class SongsPage extends Component {
         super(props);
         this.state = {
             currentPage: 1,
-            songsPerPag: 10,
         };
     }
 
@@ -31,6 +30,40 @@ class SongsPage extends Component {
         }
     }
 
+    AddAlbumToState = () => {
+        let currentAlbum = this.props.filter ? (songs.filter(e=>e.hashtag.includes(this.props.filter[0])).sort(function(a,b){return b.likes-a.likes})) : (songs.sort(function(a,b){return b.likes-a.likes}));
+
+        this.props.addAlbum(currentAlbum);
+    }
+
+    AddAlbumInformationToState = (nextProps) => {
+
+            let album = this.props.currentAlbum[0];
+    
+            let totalPage = Math.ceil(album.length/this.props.songsPerPag);
+        
+            let lastIndexes = [];
+        
+            for (let i=1; i<=totalPage; i++){
+                let index = i*this.props.songsPerPag-1;
+                if(index<album.length){
+                    lastIndexes.push(index);
+                }else{
+                    lastIndexes.push(album.length-1);
+                }
+            } 
+    
+            let firstIndexes=[];
+    
+            for (let i=0; i<totalPage; i++){
+                let index = i*(this.props.songsPerPag);
+                firstIndexes.push(index);
+            } 
+    
+            this.props.addAlbumDetail(firstIndexes, lastIndexes, this.state.currentPage, totalPage, this.props.songsPerPag);
+    
+    }
+
 
 
     componentDidMount = () => {   
@@ -39,56 +72,51 @@ class SongsPage extends Component {
         list.className = "pagination_item_current";
         }
 
-        let currentAlbum = songs.sort(function(a,b){return b.likes-a.likes});
-        this.props.addAlbum(currentAlbum);
+        this.AddAlbumToState();
+
     }
 
     UNSAFE_componentWillReceiveProps(nextProps){
-
-        if(nextProps.currentSongId !== this.props.currentSongId){
-
-        let album = this.props.currentAlbum[0];
-
-        let totalPage = Math.ceil(album.length/this.state.songsPerPag);
-    
-        let lastIndexes = [];
-    
-        for (let i=1; i<=totalPage; i++){
-            let index = i*this.state.songsPerPag-1;
-            if(index<album.length){
-                lastIndexes.push(index);
-            }else{
-                lastIndexes.push(album.length-1);
-            }
-        } 
-
-        let firstIndexes=[];
-
-        for (let i=0; i<totalPage; i++){
-            let index = i*(this.state.songsPerPag);
-            firstIndexes.push(index);
-        } 
-
-        let currentAlbum = songs.sort(function(a,b){return b.likes-a.likes});
-        this.props.addAlbum(currentAlbum,firstIndexes, lastIndexes, this.state.currentPage, totalPage);
+        if(nextProps.currentSongId  !== this.props.currentSongId ){
+            this.AddAlbumInformationToState(nextProps);
         }
+    }
+
+    componentDidUpdate = (prevProps) => {
+        if(prevProps.filter !== this.props.filter){
+            let list  =document.getElementById('1');
+            if(list){
+            list.className = "pagination_item_current";
+            list.click()
+            }
+
+            this.AddAlbumToState();
+            this.AddAlbumInformationToState(this.props);
+        }
+    
     }
 
 
 
     render(){  
             let indexOfLastSong;
-            let allSongs =  (songs.sort(function(a,b){return b.likes-a.likes}));
+            let allSongs;
+            if(this.props.filter){
+                allSongs =  (songs.filter(e=>e.hashtag.includes(this.props.filter[0])).sort(function(a,b){return b.likes-a.likes}));
+            }else{
+                allSongs =  (songs.sort(function(a,b){return b.likes-a.likes}));
+            }
+            
 
-            if(this.state.currentPage * this.state.songsPerPag<allSongs.length){
-                indexOfLastSong = this.state.currentPage * this.state.songsPerPag;
+            if(this.state.currentPage * this.props.songsPerPag<allSongs.length){
+                indexOfLastSong = this.state.currentPage * this.props.songsPerPag;
             }else{
                 indexOfLastSong = allSongs.length;
             }
     
-            let indexOfFirstSong = this.state.currentPage * this.state.songsPerPag - this.state.songsPerPag;
+            let indexOfFirstSong = this.state.currentPage * this.props.songsPerPag - this.props.songsPerPag;
             let currentSongs =  allSongs.slice(indexOfFirstSong, indexOfLastSong);
-            let totalPage = Math.ceil(allSongs.length/this.state.songsPerPag);
+            let totalPage = Math.ceil(allSongs.length/this.props.songsPerPag);
     
             let pageNumbers = [];
     
@@ -99,7 +127,7 @@ class SongsPage extends Component {
         return(
             <div className="songPage">
             <ScrollToTopOnMount/>
-            <h2> Все композиции</h2>
+            {this.props.filter ? <h2> Все композиции {this.props.filter}</h2> : <h2> Все композиции</h2>}
             {
                 currentSongs.map(({
                     id,
@@ -136,8 +164,7 @@ class SongsPage extends Component {
                         onClick={()=>this.Paginate(number)}>
                             {number}
                         </li>
-                    )
-                    )
+                    ))
                 }
                 </ul>
             </div>
@@ -151,15 +178,19 @@ class SongsPage extends Component {
 }
 
 const mapStateToProps = (state) =>({
+    songsPerPag: state.currentAlbum.songsPerPag,
     currentSongId: state.playSong.currentSongId,
     filter: state.filteredSongs.filter,
     currentAlbum: state.currentAlbum.album,
 })
 
 const mapDispatchToProps = (dispatch) =>({
-    addAlbum: (album, firstIndexes, lastIndexes, currentPage, pagesLength) => dispatch({
+    addAlbum: (album) => dispatch({
         type:'ADD_ALBUM',
         album:album,
+        }),
+    addAlbumDetail: (firstIndexes, lastIndexes, currentPage, pagesLength) => dispatch({
+        type:'ADD_ALBUM_DETAILS',
         firstIndexes: firstIndexes,
         lastIndexes: lastIndexes,
         currentPage: currentPage,
