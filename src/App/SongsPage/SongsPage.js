@@ -31,12 +31,12 @@ class SongsPage extends Component {
     }
 
     AddAlbumToState = () => {
-        let currentAlbum = this.props.filter ? (songs.filter(e=>e.hashtag.includes(this.props.filter[0])).sort(function(a,b){return b.likes-a.likes})) : (songs.sort(function(a,b){return b.likes-a.likes}));
+        let currentAlbum = (this.props.filter && this.props.filter[0] !== "all") ? (songs.filter(e=>e.hashtag.includes(this.props.filter[0])).sort(function(a,b){return b.likes-a.likes})) : (songs.sort(function(a,b){return b.likes-a.likes}));
 
         this.props.addAlbum(currentAlbum);
     }
 
-    AddAlbumInformationToState = (nextProps) => {
+    AddAlbumInformationToState = () => {
 
             let album = this.props.currentAlbum[0];
     
@@ -78,7 +78,7 @@ class SongsPage extends Component {
 
     UNSAFE_componentWillReceiveProps(nextProps){
         if(nextProps.currentSongId  !== this.props.currentSongId ){
-            this.AddAlbumInformationToState(nextProps);
+            this.AddAlbumInformationToState();
         }
     }
 
