@@ -96,17 +96,20 @@ class SongsPage extends Component {
     
     }
 
+    componentWillUnmount(){
+        this.props.addFilterToState("all");
+    }
+
 
 
     render(){  
             let indexOfLastSong;
             let allSongs;
-            if(this.props.filter){
+            if(this.props.filter && this.props.filter[0] !== "all"){
                 allSongs =  (songs.filter(e=>e.hashtag.includes(this.props.filter[0])).sort(function(a,b){return b.likes-a.likes}));
-            }else{
+            }else if(this.props.filter[0] === "all" || !this.props.filter){
                 allSongs =  (songs.sort(function(a,b){return b.likes-a.likes}));
             }
-            
 
             if(this.state.currentPage * this.props.songsPerPag<allSongs.length){
                 indexOfLastSong = this.state.currentPage * this.props.songsPerPag;
@@ -127,7 +130,7 @@ class SongsPage extends Component {
         return(
             <div className="songPage">
             <ScrollToTopOnMount/>
-            {this.props.filter ? <h2> Все композиции {this.props.filter}</h2> : <h2> Все композиции</h2>}
+            {(this.props.filter && this.props.filter[0] !== "all") ? <h2> Все композиции {this.props.filter}</h2> : <h2> Все композиции</h2>}
             {
                 currentSongs.map(({
                     id,
@@ -196,6 +199,10 @@ const mapDispatchToProps = (dispatch) =>({
         currentPage: currentPage,
         pagesLength: pagesLength,
         }),
+    addFilterToState: (filter) => dispatch({
+        type:'ADD_FILTER',
+        filter: filter,
+    })
 })
 
 export default connect(mapStateToProps, mapDispatchToProps) (SongsPage);

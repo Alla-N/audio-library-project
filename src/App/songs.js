@@ -4,10 +4,10 @@ export const songs = [
         songName: "Лети",
         artistName: "ELMAN",
         src: "/songs/ELMAN - Лети.mp3",
-        hashtag:"pop",
+        hashtag:["pop"],
         artistImg:"/artistsImg/Elman.jpg",
         likes: 17,
-        length: '02.33',
+        length: "02.33",
     }
 ,
     {
@@ -15,10 +15,10 @@ export const songs = [
         songName: "Антигерой",
         artistName: "ELMAN",
         src: "/songs/Elman - Антигерой.mp3",
-        hashtag:'rok',
+        hashtag:["pop"],
         artistImg:"/artistsImg/Elman.jpg",
         likes: 5,
-        length: '02.44',
+        length: "02.44",
     }
 ,
     {
@@ -26,10 +26,10 @@ export const songs = [
         songName: "Life",
         artistName: "Zivert",
         src: "/songs/Zivert - Life.mp3",
-        hashtag:['pop'],
+        hashtag:["pop"],
         artistImg:"/artistsImg/Zivert.jpg",
         likes: 5,
-        length: '03.08',
+        length: "03.08",
     }
 ,
     {
@@ -37,10 +37,10 @@ export const songs = [
         songName: "Нирвана",
         artistName: "ELMAN",
         src: "/songs/Elman - Нирвана.mp3",
-        hashtag:['pop'],
+        hashtag:["pop"],
         artistImg:"/artistsImg/Elman.jpg",
         likes: 4,
-        length: '02.48',
+        length: "02.48",
     }
 ,
     {
@@ -48,10 +48,10 @@ export const songs = [
         songName: "Спаси меня",
         artistName: "ELMAN",
         src: "/songs/Elman - Спаси Меня.mp3",
-        hashtag:['pop'],
+        hashtag:["pop"],
         artistImg:"/artistsImg/Elman.jpg",
         likes: 12,
-        length: '02.51',
+        length: "02.51",
     }
 ,
     {
@@ -59,10 +59,10 @@ export const songs = [
         songName: "Адреналин",
         artistName: "ELMAN",
         src: "/songs/Elman - Адреналин.mp3",
-        hashtag:['pop'],
+        hashtag:["pop"],
         artistImg:"/artistsImg/Elman.jpg",
         likes: 3,
-        length: '04.00',
+        length: "04.00",
     }
 ,
     {
@@ -70,10 +70,10 @@ export const songs = [
         songName: "Зелёные Волны",
         artistName: "Zivert",
         src: "/songs/Zivert - Зелёные Волны.mp3",
-        hashtag:['pop'],
+        hashtag:["pop"],
         artistImg:"/artistsImg/Zivert.jpg",
         likes: 5,
-        length: '03.43',
+        length: "03.43",
     }
 ,
     {
@@ -81,10 +81,10 @@ export const songs = [
         songName: "Credo",
         artistName: "Zivert",
         src: "/songs/Zivert - Credo.mp3",
-        hashtag:['pop'],
+        hashtag:["pop"],
         artistImg:"/artistsImg/Zivert.jpg",
         likes: 14,
-        length: '03.04',
+        length: "03.04",
     }
 ,
     {
@@ -92,10 +92,10 @@ export const songs = [
         songName: "Ещё Хочу",
         artistName: "Zivert",
         src: "/songs/Zivert - Ещё Хочу.mp3",
-        hashtag:['pop'],
+        hashtag:["pop"],
         artistImg:"/artistsImg/Zivert.jpg",
         likes: 11,
-        length: '03.25',
+        length: "03.25",
     }
 ,
     {
@@ -103,10 +103,10 @@ export const songs = [
         songName: "Bellyache",
         artistName: "Billie Eilish",
         src: "/songs/Billie Eilish - Bellyache.mp3",
-        hashtag:['pop'],
+        hashtag:["pop"],
         artistImg:"/artistsImg/BillieEilish.jpg",
         likes: 22,
-        length: '02.59',
+        length: "02.59",
     }
 ,
     {
@@ -114,10 +114,10 @@ export const songs = [
         songName: "Copycat",
         artistName: "Billie Eilish",
         src: "/songs/Billie Eilish - Copycat.mp3",
-        hashtag:['pop'],
+        hashtag:["pop"],
         artistImg:"/artistsImg/BillieEilish.jpg",
         likes: 12,
-        length: '03.14',
+        length: "03.14",
     }
 ,
     {
@@ -125,10 +125,10 @@ export const songs = [
         songName: "Bored",
         artistName: "Billie Eilish",
         src: "/songs/Billie Eilish - Bored.mp3",
-        hashtag:['pop'],
+        hashtag:["pop"],
         artistImg:"/artistsImg/BillieEilish.jpg",
         likes: 4,
-        length: '03.00',
+        length: "03.00",
     }
 ,
     {
@@ -136,10 +136,10 @@ export const songs = [
         songName: "My Boy",
         artistName: "Billie Eilish",
         src: "/songs/Billie Eilish - My Boy.mp3",
-        hashtag:['pop'],
+        hashtag:["pop"],
         artistImg:"/artistsImg/BillieEilish.jpg",
         likes: 1,
-        length: '02.50',
+        length: "02.50",
     }
 ,
     {
@@ -147,10 +147,10 @@ export const songs = [
         songName: "Vislovo",
         artistName: "Время и Стекло",
         src: "songs/Время и Стекло - Vislovo.mp3",
-        hashtag:['pop'],
+        hashtag:["pop"],
         artistImg:"/artistsImg/ВремяИстекло.jpg",
         likes: 8,
-        length: '03.06',
+        length: "03.06",
     }
 ,
     {
@@ -158,10 +158,10 @@ export const songs = [
         songName: "Тролль",
         artistName: "Время и Стекло",
         src: "/songs/Время и Стекло - Тролль.mp3",
-        hashtag:['pop'],
+        hashtag:["pop"],
         artistImg:"/artistsImg/ВремяИстекло.jpg",
         likes: 8,
-        length: '03.09',
+        length: "03.09",
     }
 ,
     {
@@ -169,10 +169,10 @@ export const songs = [
         songName: "ТОП",
         artistName: "Время и Стекло",
         src: "/songs/Время и Стекло - ТОП.mp3",
-        hashtag:['pop'],
+        hashtag:["pop"],
         artistImg:"/artistsImg/ВремяИстекло.jpg",
         likes: 13,
-        length: '03.17',
+        length: "03.17",
     }
 ,
     {
@@ -180,10 +180,10 @@ export const songs = [
         songName: "Финальные Титры",
         artistName: "Время и Стекло",
         src: "/songs/Время и Стекло - Финальные Титры.mp3",
-        hashtag:['pop'],
+        hashtag:["pop"],
         artistImg:"/artistsImg/ВремяИстекло.jpg",
         likes: 19,
-        length: '03.02',
+        length: "03.02",
     }
 ,
     {
@@ -191,10 +191,10 @@ export const songs = [
         songName: "Зеркала",
         artistName: "Ани Лорак",
         src: "/songs/Ани Лорак feat. Григорий Лепс - Зеркала.mp3",
-        hashtag:['pop'],
+        hashtag:["pop"],
         artistImg:"/artistsImg/АниЛорак.jpeg",
         likes: 4,
-        length: '03.42',
+        length: "03.42",
     }
     ,
     {
@@ -202,10 +202,10 @@ export const songs = [
         songName: "Сон",
         artistName: "Ани Лорак",
         src: "/songs/Ани Лорак - Сон.mp3",
-        hashtag:['pop'],
+        hashtag:["pop"],
         artistImg:"/artistsImg/АниЛорак.jpeg",
         likes: 16,
-        length: '02.58',
+        length: "02.58",
     }
     ,
     {
@@ -213,10 +213,10 @@ export const songs = [
         songName: "Новый Бывший",
         artistName: "Ани Лорак",
         src: "/songs/Ани Лорак - Новый Бывший.mp3",
-        hashtag:['pop'],
+        hashtag:["pop"],
         artistImg:"/artistsImg/АниЛорак.jpeg",
         likes: 7,
-        length: '03.26',
+        length: "03.26",
     }
     ,
     {
@@ -224,10 +224,10 @@ export const songs = [
         songName: "Сопрано",
         artistName: "Ани Лорак",
         src: "/songs/Мот feat. Ани Лорак - Сопрано.mp3",
-        hashtag:['pop'],
+        hashtag:["pop"],
         artistImg:"/artistsImg/АниЛорак.jpeg",
         likes: 9,
-        length: '03.29',
+        length: "03.29",
     }
     ,
     {
@@ -235,10 +235,10 @@ export const songs = [
         songName: "Я Тебя Ждала",
         artistName: "Ани Лорак",
         src: "/songs/Ани Лорак - Я Тебя Ждала.mp3",
-        hashtag:['pop'],
+        hashtag:["pop"],
         artistImg:"/artistsImg/АниЛорак.jpeg",
         likes: 5,
-        length: '03.26',
+        length: "03.26",
     }
     ,
     {
@@ -246,10 +246,10 @@ export const songs = [
         songName: "Крошка Моя",
         artistName: "Руки Вверх",
         src: "/songs/Руки Вверх - Крошка Моя.mp3",
-        hashtag:['pop', 'retro'],
+        hashtag:["pop", "retro"],
         artistImg:"/artistsImg/РукиВверх.jpg",
         likes: 4,
-        length: '04.08',
+        length: "04.08",
     }
     ,
     {
@@ -257,10 +257,10 @@ export const songs = [
         songName: "Он Тебя Целует",
         artistName: "Руки Вверх",
         src: "/songs/Руки Вверх - Он Тебя Целует.mp3",
-        hashtag:['pop', 'retro'],
+        hashtag:["pop", "retro"],
         artistImg:"/artistsImg/РукиВверх.jpg",
         likes: 7,
-        length: '04.03',
+        length: "04.03",
     }
     ,
     {
@@ -268,10 +268,10 @@ export const songs = [
         songName: "18 Мне Уже",
         artistName: "Руки Вверх",
         src: "/songs/Руки Вверх - 18 Мне Уже.mp3",
-        hashtag:['pop', 'retro'],
+        hashtag:["pop", "retro"],
         artistImg:"/artistsImg/РукиВверх.jpg",
         likes: 14,
-        length: '04.07',
+        length: "04.07",
     }
     ,
     {
@@ -279,10 +279,10 @@ export const songs = [
         songName: "Доброй, Нежной, Ласковой",
         artistName: "Руки Вверх",
         src: "/songs/Руки Вверх - Доброй, Нежной, Ласковой.mp3",
-        hashtag:['pop', 'retro'],
+        hashtag:["pop", "retro"],
         artistImg:"/artistsImg/РукиВверх.jpg",
         likes: 7,
-        length: '03.43',
+        length: "03.43",
     }
     ,
     {
@@ -290,10 +290,10 @@ export const songs = [
         songName: "Когда твоя девушка больна",
         artistName: "Виктор Цой",
         src: "/songs/Виктор Цой - Когда твоя девушка больна.mp3",
-        hashtag:['rok'],
+        hashtag:["rok"],
         artistImg:"/artistsImg/ВикторЦой.jpg",
         likes: 12,
-        length: '04.20',
+        length: "04.20",
     }
     ,
     {
@@ -301,10 +301,10 @@ export const songs = [
         songName: "Группа крови",
         artistName: "Виктор Цой",
         src: "/songs/Виктор Цой - Группа крови.mp3",
-        hashtag:['rok'],
+        hashtag:["rok"],
         artistImg:"/artistsImg/ВикторЦой.jpg",
         likes: 12,
-        length: '03.59',
+        length: "03.59",
     }
     ,
     {
@@ -312,10 +312,10 @@ export const songs = [
         songName: "Пачка сигарет",
         artistName: "Виктор Цой",
         src: "/songs/Виктор Цой - Пачка сигарет.mp3",
-        hashtag:['rok'],
+        hashtag:["rok"],
         artistImg:"/artistsImg/ВикторЦой.jpg",
         likes: 11,
-        length: '04.29',
+        length: "04.29",
     }
     ,
     {
@@ -323,10 +323,10 @@ export const songs = [
         songName: "Звезда по имени Солнце",
         artistName: "Виктор Цой",
         src: "/songs/Виктор Цой - Звезда по имени Солнце.mp3",
-        hashtag:['rok'],
+        hashtag:["rok"],
         artistImg:"/artistsImg/ВикторЦой.jpg",
         likes: 9,
-        length: '03.24',
+        length: "03.24",
     }
     ,
     {
@@ -334,10 +334,10 @@ export const songs = [
         songName: "Кукушка",
         artistName: "Виктор Цой",
         src: "/songs/Виктор Цой - Кукушка.mp3",
-        hashtag:['rok'],
+        hashtag:["rok"],
         artistImg:"/artistsImg/ВикторЦой.jpg",
         likes: 22,
-        length: '06.40',
+        length: "06.40",
     }
     ,
     {
@@ -345,10 +345,10 @@ export const songs = [
         songName: "Восьмиклассница",
         artistName: "Виктор Цой",
         src: "/songs/Виктор Цой - Восьмиклассница.mp3",
-        hashtag:['rok'],
+        hashtag:["rok"],
         artistImg:"/artistsImg/ВикторЦой.jpg",
         likes: 8,
-        length: '02.45',
+        length: "02.45",
     }
     ,
     {
@@ -356,10 +356,10 @@ export const songs = [
         songName: "Вечная Призрачная Встречная",
         artistName: "Би-2",
         src: "/songs/Би-2 - Вечная Призрачная Встречная.mp3",
-        hashtag:['rok'],
+        hashtag:["rok"],
         artistImg:"/artistsImg/би2.jpeg",
         likes: 10,
-        length: '04.50',
+        length: "04.50",
     }
     ,
     {
@@ -367,10 +367,10 @@ export const songs = [
         songName: "Моя Любовь",
         artistName: "Би-2",
         src: "/songs/Би-2 - Моя Любовь.mp3",
-        hashtag:['rok'],
+        hashtag:["rok"],
         artistImg:"/artistsImg/би2.jpeg",
         likes: 6,
-        length: '04.56',
+        length: "04.56",
     }
     ,
     {
@@ -378,10 +378,10 @@ export const songs = [
         songName: "Чёрное Солнце",
         artistName: "Би-2",
         src: "/songs/Би-2 - Чёрное Солнце.mp3",
-        hashtag:['rok'],
+        hashtag:["rok"],
         artistImg:"/artistsImg/би2.jpeg",
         likes: 9,
-        length: '04.49',
+        length: "04.49",
     }
     ,
     {
@@ -389,10 +389,10 @@ export const songs = [
         songName: "High Off Yo",
         artistName: "Sasha Fashion",
         src: "/songs/Fly & Sasha Fashion - High Off Yo.mp3",
-        hashtag:['club'],
+        hashtag:["club"],
         artistImg:"/artistsImg/SashaFashion.jpg",
         likes: 6,
-        length: '05.02',
+        length: "05.02",
     }
     ,
     {
@@ -400,10 +400,10 @@ export const songs = [
         songName: "Без Тебя",
         artistName: "Стас Михайлов",
         src: "/songs/Стас Михайлов - Без Тебя.mp3",
-        hashtag:['chanson'],
+        hashtag:["chanson"],
         artistImg:"/artistsImg/СтасМихайлов.jpg",
         likes: 6,
-        length: '04.19',
+        length: "04.19",
     }
     ,
     {
@@ -411,10 +411,10 @@ export const songs = [
         songName: "Как Долго Я Тебя Искал",
         artistName: "Алексей Брянцев",
         src: "/songs/Алексей Брянцев - Как Долго Я Тебя Искал.mp3",
-        hashtag:['chanson'],
+        hashtag:["chanson"],
         artistImg:"/artistsImg/АлексейБрянцев.jpg",
         likes: 3,
-        length: '04.08',
+        length: "04.08",
     }
 ];
 

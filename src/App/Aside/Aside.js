@@ -85,6 +85,7 @@ class Aside extends Component {
                 <Link to="/songs/dubstep"><button id="dubstep">#дабстеп</button></Link>
                 <Link to="/songs/house"><button id="house">#house</button></Link>
                 <Link to="/songs/metal"><button id="metal">#метал</button></Link>
+                <Link to="/songs"><button id="all">#вся музыка</button></Link>
             </div>
             <div className="contactsButton">
                 <Link to="/contacts">Контакты</Link>

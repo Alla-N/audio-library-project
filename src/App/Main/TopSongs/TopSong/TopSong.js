@@ -22,17 +22,17 @@ class TopSong extends Component {
         let song = document.getElementsByTagName('audio');  
 
         // Если песня не играет и id в стейте не совпадает с кликнутой песней, тогда включить кликнутую
-        if(!this.props.isPlaying && this.props.currentSongId != this.props.id){
+        if(!this.props.isPlaying && Number(this.props.currentSongId) !== this.props.id){
 
             this.props.playSong(this.props.src, this.props.artistName, this.props.songName, this.props.id, true);
         
             // Если песня играет НО id в стейте не совпадает с кликнутой песней, тогда включить кликнутую
-        }else if((this.props.isPlaying && this.props.currentSongId != this.props.id)){
+        }else if((this.props.isPlaying && Number(this.props.currentSongId) !== this.props.id)){
             
             this.props.playSong(this.props.src, this.props.artistName, this.props.songName, this.props.id, true);
         
             // Если песня не играет но она является текущей, просто продолжить воспроизведение
-        }else if(!this.props.isPlaying && this.props.currentSongId == this.props.id){
+        }else if(!this.props.isPlaying && Number(this.props.currentSongId) === this.props.id){
             
             song[0].play();
             this.props.play(true);
@@ -58,7 +58,6 @@ class TopSong extends Component {
             songName,
             artistName,
             src,
-            hashtag,
             likes,
             length,
             isLiked = false,
@@ -66,8 +65,7 @@ class TopSong extends Component {
     return (
     <div className="topSong" key={id}>
         <div className="buttonPlay" onClick={()=>this.changePlayButtonState()}>
-            {(this.props.currentSongId == id && this.props.isPlaying) ? <div className="pause"></div> : <div className="play"></div>}
-            
+            {(Number(this.props.currentSongId) === id && this.props.isPlaying) ? <div className="pause"></div> : <div className="play"></div>}
         </div>
         <div className="topSong_title">
             <div className="artist_name">
