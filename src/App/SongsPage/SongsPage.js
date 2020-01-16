@@ -105,9 +105,9 @@ class SongsPage extends Component {
     render(){  
             let indexOfLastSong;
             let allSongs;
-            if(this.props.filter && this.props.filter[0] !== "all"){
+            if(this.props.filter && this.props.filter != "all"){
                 allSongs =  (songs.filter(e=>e.hashtag.includes(this.props.filter[0])).sort(function(a,b){return b.likes-a.likes}));
-            }else if(this.props.filter[0] === "all" || !this.props.filter){
+            }else{
                 allSongs =  (songs.sort(function(a,b){return b.likes-a.likes}));
             }
 
@@ -130,7 +130,7 @@ class SongsPage extends Component {
         return(
             <div className="songPage">
             <ScrollToTopOnMount/>
-            {(this.props.filter && this.props.filter[0] !== "all") ? <h2> Все композиции {this.props.filter}</h2> : <h2> Все композиции</h2>}
+            {(this.props.filter && this.props.filter != "all") ? <h2> Все композиции {this.props.filter}</h2> : <h2> Все композиции</h2>}
             {
                 currentSongs.map(({
                     id,

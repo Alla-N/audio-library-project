@@ -48,7 +48,7 @@ class TopSongs extends Component {
     return(
         <div className='topSongs'>
             <h2>Топ композиций</h2>
-            <Link to="/songs">См. все</Link>
+            <Link to="/songs" onClick={()=>this.props.addFilterToState("all")}>См. все</Link>
             <div className='topSongsBlock'>
             {
                 songs.sort(function(a,b){return b.likes-a.likes}).slice(0,6).map(({
@@ -100,6 +100,10 @@ const mapDispatchToProps = (dispatch) =>({
         currentPage: currentPage,
         pagesLength: pagesLength,
         }),
+    addFilterToState: (filter) => dispatch({
+        type:'ADD_FILTER',
+        filter: filter,
+    })
 })
 
 export default connect (mapStateToProps, mapDispatchToProps) (TopSongs);
