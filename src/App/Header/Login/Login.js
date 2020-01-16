@@ -7,7 +7,7 @@ import './Login.css';
 const Login = () => {
     return(
         <div className="logIn">
-            <Link to="/user"><button>Войти в аккаунт</button></Link>
+            <Link to="/user"><button>Войти</button></Link>
         </div>
     )
 }

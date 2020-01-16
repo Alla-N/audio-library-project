@@ -6,7 +6,7 @@ const Search = () => {
     return(
         <div className="search">
         <form>
-            <input type="text" placeholder="Поиск по исполнителю и названию трека"/>
+            <input type="text" placeholder="Поиск трека"/>
             <button type="submit"></button>
         </form>
         </div>
