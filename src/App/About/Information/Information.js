@@ -2,17 +2,25 @@ import React, {Component} from 'react';
 import './Information.css';
 
 class Information extends Component {
+    constructor(props){
+        super(props);
+        this.state = {}
+    }
 
     NextSlide = () => {
         let slides = document.getElementsByClassName('slider_item');
+
+        if(slides){
         let currentSlide = [].findIndex.call(slides, function (e){return e.classList.contains("slider_item_show")})
         slides[currentSlide].classList.remove("slider_item_show");
         currentSlide = (currentSlide+1)%slides.length;
         slides[currentSlide].classList.add("slider_item_show");
+        }
     }
 
     PrevSlide = () => {
         let slides = document.getElementsByClassName('slider_item');
+        if(slides){
         let currentSlide = [].findIndex.call(slides, function (e){return e.classList.contains("slider_item_show")})
         slides[currentSlide].classList.remove("slider_item_show");
 
@@ -23,10 +31,16 @@ class Information extends Component {
         }
         
         slides[currentSlide].classList.add("slider_item_show");
+        }
     }
 
     componentDidMount(){
-        setInterval(this.NextSlide,3000);
+        let interval = setInterval(this.NextSlide,3000);
+        this.setState({ interval: interval })
+    }
+
+    componentWillUnmount(){
+        clearInterval(this.state.interval)
     }
 
 
