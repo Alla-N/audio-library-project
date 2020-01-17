@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './Contacts.css';
-import ScrollToTopOnMount from '../ScrollToTopOnMount';
+import ScrollToTopOnMount from '../../ScrollToTopOnMount';
 
 class Contacts extends Component {
     render(){

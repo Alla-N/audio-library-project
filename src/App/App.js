@@ -8,7 +8,8 @@ import Footer from './Footer/Footer';
 import TopArtistsPage from './TopArtistsPage/TopArtistsPage';
 import User from './User/User';
 import Registration from './User/Registration/Registration';
-import Contacts from './Contacts/Contacts';
+import Contacts from './About/Contacts/Contacts';
+import Information from './About/Information/Information';
 import ArtistPage from './ArtistPage/ArtistPage';
 import SongsPage from './SongsPage/SongsPage';
 import ScrollToTopOnMount from './ScrollToTopOnMount';
@@ -27,6 +28,7 @@ class App extends Component {
       <Route path = '/user' component = {User}/>
       <Route path = '/registration' component = {Registration}/>
       <Route path = '/contacts' component = {Contacts}/>
+      <Route path = '/information' component = {Information}/>
       <Route 
       path = '/artist/:artistName'
       render = {props=><ArtistPage {...props}/>}></Route>

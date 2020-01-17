@@ -22,6 +22,7 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .topArtist {
@@ -32,6 +33,7 @@
 
 .topArtist img {
     width: 100%;
+    max-width: 200px;
     height: auto;
     border: 1px solid grey;
     transition: all 0.8s;
