@@ -1,8 +1,10 @@
 .header {
     width: 100%;
     display: flex;
+    justify-content: space-between;
     flex-wrap: wrap;
     background-color:  #0066ff;
+    text-align: center;
     height: 60px;
     padding: 10px 20px;
     position: sticky;
@@ -10,3 +12,10 @@
     z-index: 10;
 }
 
+/* --------------- */
+
+@media (max-width: 320px){
+    .header {
+        padding: 10px;
+    }
+}

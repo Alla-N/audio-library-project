@@ -8,7 +8,7 @@
 
 .search form {
     position: relative;
-    width: 100%;
+    width: 90%;
     margin: 0 auto;
 }
 .search input {
@@ -40,3 +40,24 @@
 .search button:hover {
     background-image: url(./iconsearch2.png);
 }
+
+
+/* --------------tablet----------- */
+
+@media screen and (max-width: 939px){
+    .search{
+        order: 2;
+        width: 50%;
+    }
+}
+
+
+/* ------------------------- */
+
+@media screen and (max-width: 630px){
+    .search{
+        width: 60%;
+    }
+
+}
+

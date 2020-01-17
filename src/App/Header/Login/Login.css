@@ -14,6 +14,7 @@
 
 .logIn button {
     width: 100%;
+    max-width: 100px;
     min-height: 40px;
     margin: auto auto;
     border: none;
@@ -27,3 +28,17 @@
 .logIn button:hover {
     color: black;
 }
+
+
+/* --------------tablet----------- */
+
+@media screen and (max-width: 939px){
+    .logIn{
+        order: 3;
+        width: 20%;
+        text-align: center;
+    }
+}
+
+
+

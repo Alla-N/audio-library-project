@@ -7,7 +7,7 @@ import logo from './logo.png'
 const Logo = () => {
     return(
         <div className="logo">
-            <Link to='/'><img src={logo} alt=""/><div>MyMusic</div></Link>
+            <Link to='/'><img src={logo} alt="logo"></img><div>MyMusic</div></Link>
         </div>
     )
 }
