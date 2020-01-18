@@ -12,6 +12,7 @@ import Contacts from './About/Contacts/Contacts';
 import Information from './About/Information/Information';
 import ArtistPage from './ArtistPage/ArtistPage';
 import SongsPage from './SongsPage/SongsPage';
+import Playlist from './Playlist/Playlist';
 import ScrollToTopOnMount from './ScrollToTopOnMount';
 
 
@@ -32,6 +33,7 @@ class App extends Component {
       <Route 
       path = '/artist/:artistName'
       render = {props=><ArtistPage {...props}/>}></Route>
+      <Route path = '/playlist' component = {Playlist}/>
       <Aside/>
       <Footer/>
     </div>

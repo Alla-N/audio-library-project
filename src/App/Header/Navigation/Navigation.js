@@ -1,9 +1,11 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import './Navigation.css';
 import menu from "./menu.png";
 
-const Navigation  = () => {
+class Navigation  extends Component {
+
+    render(){
     return (
         <div className="navigation">
             <ul className="hidden_menu">
@@ -34,7 +36,9 @@ const Navigation  = () => {
             </li>
             </ul>
         </div>
-    );
+    )
+    }
 }
+
 
 export default Navigation;

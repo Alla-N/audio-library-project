@@ -6,27 +6,18 @@ import './Footer.css';
 class Footer extends Component {
 
     changePlaylistButtonState = () => {
-        if(this.props.isChecked){
-        
-            this.props.removeFromPlaylist(this.props.currentSongId);
-            
-        }else{
-            
-            this.props.addToPlaylist(this.props.currentSongId);
-    
+        if(this.props.isChecked){        
+            this.props.removeFromPlaylist(this.props.currentSongId);            
+        }else{           
+            this.props.addToPlaylist(this.props.currentSongId);   
         }
     }
 
     changeLikeButtonState = () =>{
-
-        if(this.props.isLiked){
-        
-        this.props.addDislike(this.props.currentSongId);
-        
-        }else{
-        
-        this.props.addLike(this.props.currentSongId);
-
+        if(this.props.isLiked){       
+            this.props.addDislike(this.props.currentSongId);        
+        }else{       
+            this.props.addLike(this.props.currentSongId);
         }
     }
 
@@ -112,7 +103,6 @@ class Footer extends Component {
 
         },false);
     }
-    
 
     render(){
 
@@ -147,7 +137,6 @@ const mapStateToProps = (state) => ({
     currentSrc: state.playSong.currentSong,
     artistName: state.playSong.currentArtistName,
     songName: state.playSong.currentSongName,
-    isChecked: state.playlistSongs[state.playSong.currentSongId],
     isLiked: state.likedSongs[state.playSong.currentSongId],
     currentSongId: state.playSong.currentSongId,
     isPlaying: state.playSong.isPlaying,
@@ -190,6 +179,13 @@ const mapDispatchToProps = (dispatch) =>({
         songName:songName,
         id:SongId,
     }),
+    addAlbumDetail: (firstIndexes, lastIndexes, currentPage, pagesLength) => dispatch({
+        type:'ADD_ALBUM_DETAILS',
+        firstIndexes: firstIndexes,
+        lastIndexes: lastIndexes,
+        currentPage: currentPage,
+        pagesLength: pagesLength,
+        }),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Footer);

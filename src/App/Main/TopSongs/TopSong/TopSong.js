@@ -7,26 +7,17 @@ class TopSong extends Component {
 
     changePlaylistButtonState = () => {
         if(this.props.isChecked){
-        
-            this.props.removeFromPlaylist(this.props.id);
-            
-            }else{
-            
-            this.props.addToPlaylist(this.props.id);
-    
-            }
+            this.props.removeFromPlaylist(this.props.id);          
+        }else{           
+            this.props.addToPlaylist(this.props.id);    
+        }
     }
 
     changeLikeButtonState = () =>{
-
         if(this.props.isLiked){
-        
-        this.props.addDislike(this.props.id);
-        
-        }else{
-        
-        this.props.addLike(this.props.id);
-
+            this.props.addDislike(this.props.id);        
+        }else{        
+            this.props.addLike(this.props.id);
         }
     }
 
@@ -58,10 +49,8 @@ class TopSong extends Component {
         }
     }
 
-    startPlaySong = () =>{
-        
+    startPlaySong = () =>{        
         this.props.playSong(this.props.src, this.props.artistName, this.props.songName, this.props.id);
-
     }
 
     render(){
@@ -104,7 +93,8 @@ class TopSong extends Component {
 
 const mapStateToProps = (state, props) => ({
     currentSongId: state.playSong.currentSongId,
-    isChecked: state.playlistSongs[props.id],
+    isChecked: state.playlist.isChecked[props.id],
+    playlist: state.playlist.playlistAlbum,
     isLiked: state.likedSongs[props.id],
     isPlaying: state.playSong.isPlaying,
 })

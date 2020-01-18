@@ -8,7 +8,7 @@ import {filterSongsReducer} from './filterSongs.reducer';
 
 
 export const rootReducer = combineReducers({
-    playlistSongs: addPlaylistReducer,
+    playlist: addPlaylistReducer,
     likedSongs: likeSongReducer,
     playSong: playSongReducer,
     currentAlbum: currentAlbumReducer,
