@@ -78,7 +78,7 @@
 }
 
 .topSong_title {
-    width: 75%;
+    width: 70%;
     padding: 0 20px;
 }
 
@@ -98,11 +98,43 @@
 }
 
 .topSong_actions {
-    width: 25%;
+    width: 30%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+}
+
+.buttonAdd {
+    width: 60px;
+    line-height: 40px;
+    text-align: right;
+}
+
+.checked {
+    width: 30px;
+    height: 40px;
+    line-height: 40px;
+    background: url(../../img/checked.png);
+    background-repeat: no-repeat;
+    background-size: 24px;
+    background-position: 1px;
+    text-align: right;
+    vertical-align: middle;
+    float: left;
+}
+
+.unchecked {
+    width: 30px;
+    height: 40px;
+    line-height: 40px;
+    background: url(../../img/add.png);
+    background-repeat: no-repeat;
+    background-size: 24px;
+    background-position: 1px;
+    text-align: right;
+    vertical-align: middle;
+    float: left;
 }
 
 .buttonLike {
@@ -143,6 +175,7 @@
     background-size: 24px;
     background-position: center;
     border-radius: 50%;
+    margin: 0 10px;
 }
 
 .buttonDownload a {

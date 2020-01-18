@@ -5,6 +5,18 @@ import './Footer.css';
 
 class Footer extends Component {
 
+    changePlaylistButtonState = () => {
+        if(this.props.isChecked){
+        
+            this.props.removeFromPlaylist(this.props.currentSongId);
+            
+        }else{
+            
+            this.props.addToPlaylist(this.props.currentSongId);
+    
+        }
+    }
+
     changeLikeButtonState = () =>{
 
         if(this.props.isLiked){
@@ -106,23 +118,24 @@ class Footer extends Component {
 
         if(this.props.currentSrc){
             let mp3 = document.getElementsByClassName('mp3')[0];
-            mp3.style.display = 'flex'
+            mp3.style.display = 'block'
         }
 
     return (
         <div className = 'footer'>
             <div className="mp3">
-                <span className="title">
-                    <span className="footer_buttonLike" onClick={this.changeLikeButtonState}>
-                        {this.props.isLiked ? <span className="like"></span> :  <span className="dislike"></span>}
+                <div className="title">
+                    <span className="footer_buttonAdd" onClick={this.changePlaylistButtonState}>
+                        {this.props.isChecked ? <span className="footer_checked"></span> :  <span className="footer_unchecked"></span>}
                     </span>
-                    <button className="button_prev" onClick={this.PrevSongPlay}></button>
-                    <button className="button_next" onClick={this.NextSongPlay}></button>
-                    <Link to={`/artist/${this.props.artistName}`}>
-                        <span className="artist_name">{this.props.artistName}</span>
-                    </Link>
-                    <span className="song_name">{this.props.songName}</span>       
-                </span>
+                    <span className="footer_buttonLike" onClick={this.changeLikeButtonState}>
+                        {this.props.isLiked ? <span className="footer_like"></span> :  <span className="footer_dislike"></span>}
+                    </span>
+                    <span className="button_prev" onClick={this.PrevSongPlay}></span>
+                    <span className="button_next" onClick={this.NextSongPlay}></span>
+                    <span className="footer_artist_name"><Link to={`/artist/${this.props.artistName}`}>{this.props.artistName}</Link></span>                 
+                    <span className="footer_song_name">{this.props.songName}</span>       
+                </div>
             </div>
             <audio src={this.props.currentSrc} controls autoPlay></audio>
         </div>
@@ -134,6 +147,7 @@ const mapStateToProps = (state) => ({
     currentSrc: state.playSong.currentSong,
     artistName: state.playSong.currentArtistName,
     songName: state.playSong.currentSongName,
+    isChecked: state.playlistSongs[state.playSong.currentSongId],
     isLiked: state.likedSongs[state.playSong.currentSongId],
     currentSongId: state.playSong.currentSongId,
     isPlaying: state.playSong.isPlaying,
@@ -145,12 +159,18 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) =>({
-
+    addToPlaylist: (id) => dispatch({
+        type:'ADD_TO_PLAYLIST',
+        id:id,
+    }),
+    removeFromPlaylist: (id) => dispatch({
+        type:'REMOVE_FROM_PLAYLIST',
+        id:id,
+    }),
     addLike: (id) => dispatch({
         type:'LIKE',
         id:id,
-    }),
-        
+    }),        
     addDislike: (id) => dispatch({
         type:'DISLIKE',
         id:id,

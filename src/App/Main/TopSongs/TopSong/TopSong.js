@@ -5,6 +5,18 @@ import '../TopSongs.css';
 
 class TopSong extends Component {
 
+    changePlaylistButtonState = () => {
+        if(this.props.isChecked){
+        
+            this.props.removeFromPlaylist(this.props.id);
+            
+            }else{
+            
+            this.props.addToPlaylist(this.props.id);
+    
+            }
+    }
+
     changeLikeButtonState = () =>{
 
         if(this.props.isLiked){
@@ -61,6 +73,7 @@ class TopSong extends Component {
             likes,
             length,
             isLiked = false,
+            isChecked = false,
         } = this.props
     return (
     <div className="topSong" key={id}>
@@ -74,6 +87,9 @@ class TopSong extends Component {
             <div className="song_name">{songName}</div>
         </div>
         <div className="topSong_actions">
+            <div className="topSong_button buttonAdd" onClick={()=>this.changePlaylistButtonState()}>
+            {isChecked ? <div className="checked"></div> :  <div className="unchecked"></div>}
+            </div>
             <div className="topSong_button buttonLike" onClick={()=>this.changeLikeButtonState()}>
             {isLiked ? <div className="like"></div> :  <div className="dislike"></div>}
             {isLiked ? likes+1 : likes}
@@ -88,21 +104,28 @@ class TopSong extends Component {
 
 const mapStateToProps = (state, props) => ({
     currentSongId: state.playSong.currentSongId,
+    isChecked: state.playlistSongs[props.id],
     isLiked: state.likedSongs[props.id],
     isPlaying: state.playSong.isPlaying,
 })
 
 const mapDispatchToProps = (dispatch) =>({
-
+addToPlaylist: (id) => dispatch({
+    type:'ADD_TO_PLAYLIST',
+    id:id,
+}),
+removeFromPlaylist: (id) => dispatch({
+    type:'REMOVE_FROM_PLAYLIST',
+    id:id,
+}),
 addLike: (id) => dispatch({
     type:'LIKE',
     id:id,
-    }),
-    
+}),   
 addDislike: (id) => dispatch({
     type:'DISLIKE',
     id:id,
-    }),
+}),
 playSong: (src, artistName, songName, SongId, isPlaying) => dispatch ({
     type: 'PLAY_SONG',
     src:src,
