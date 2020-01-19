@@ -28,12 +28,15 @@ class Song extends Component {
     changePlayState = () =>{
         if(this.props.isPlaying){
             let audio = document.getElementsByTagName('audio')
-            this.props.pause(this.props.song);
+            this.props.pause();
             audio[0].pause()
+        }else if(this.props.isPlaying && this.props.currentSong[0].id != this.props.song.id){
+                this.props.playNewSong(this.props.song)
         }else{
-            this.props.play(this.props.song);
+            this.props.playNewSong(this.props.song);
             let audio = document.getElementsByTagName('audio');
             if(audio){
+                this.props.play();
                 audio[0].play()
             }
         }
@@ -145,13 +148,15 @@ const mapDispatchToProps = (dispatch) =>({
         type:'CHANGE_LIKEDLIST',
         likedList:likedList,
     }),
-    play: (song) => dispatch ({
-        type: 'PLAY',
+    playNewSong: (song) => dispatch ({
+        type: 'PLAY_NEW_SONG',
         song: song,
     }),
-    pause: (song) => dispatch ({
+    play: () => dispatch ({
+        type: 'PLAY',
+    }),
+    pause: () => dispatch ({
         type: 'PAUSE',
-        song: song,
     }),
 });
 

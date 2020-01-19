@@ -7,7 +7,8 @@ class Footer extends Component {
     constructor(){
         super();
         this.state = {
-            
+            indexNextSong: 0,
+            indexPrevSong: 0,
         }
     }
 
@@ -35,13 +36,13 @@ class Footer extends Component {
 // играть следующий трек
     playNextSong = () => {
         let album = this.props.currentAlbum[0];
-        this.props.play(album[this.state.indexNextSong]);
+        this.props.playNewSong(album[this.state.indexNextSong]);
     }
 
 // играть предыдущий трек
     playPrevSong = () => {
         let album = this.props.currentAlbum[0];
-        this.props.play(album[this.state.indexPrevSong]);
+        this.props.playNewSong(album[this.state.indexPrevSong]);
     }
 
 
@@ -49,7 +50,8 @@ class Footer extends Component {
         let audio = document.getElementsByTagName("audio")[0];
         
         if(audio){
-            audio.addEventListener("playing", ()=>{this.setIndexes()}, false)
+            audio.addEventListener("playing", ()=>{this.setIndexes(); this.props.play()}, false)
+            audio.addEventListener("pause", ()=>{this.props.pause()}, false)
             audio.addEventListener("ended", ()=>{this.playNextSong()}, false)
         }
     }
@@ -113,9 +115,15 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) =>({
-    play: (song) => dispatch ({
-        type: 'PLAY',
+    playNewSong: (song) => dispatch ({
+        type: 'PLAY_NEW_SONG',
         song: song,
+    }),
+    play: () => dispatch ({
+        type: 'PLAY',
+    }),
+    pause: () => dispatch ({
+        type: 'PAUSE',
     }),
 });
 
