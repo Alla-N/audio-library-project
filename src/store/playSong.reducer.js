@@ -1,5 +1,5 @@
 export const playSongReducer = (state={
-    
+    isPlaying: false,
 }, action)=> {
     switch(action.type){
         case 'PLAY':

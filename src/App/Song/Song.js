@@ -9,7 +9,6 @@ class Song extends Component {
         this.state = {
             isChecked : false,
             isLiked: false,
-            isPlaying: false,
         }
     }
 
@@ -27,18 +26,16 @@ class Song extends Component {
 
 // поменять статус проигрывания песни
     changePlayState = () =>{
-        if(this.state.isPlaying){
-            this.setState((prevState)=>({
-                ...prevState,
-                isPlaying: false,
-            }))
+        if(this.props.isPlaying){
+            let audio = document.getElementsByTagName('audio')
             this.props.pause(this.props.song);
+            audio[0].pause()
         }else{
-            this.setState((prevState)=>({
-                ...prevState,
-                isPlaying: true,
-            }))
             this.props.play(this.props.song);
+            let audio = document.getElementsByTagName('audio');
+            if(audio){
+                audio[0].play()
+            }
         }
     }
 
@@ -106,7 +103,7 @@ class Song extends Component {
     <div className="song">
     
         <div className="buttonPlay" onClick={()=>this.onClickPlayButton()}>
-            {(this.state.isPlaying) ? <div className="pause"></div> : <div className="play"></div>}
+            {(this.props.isPlaying && this.props.currentSong[0].id==song.id) ? <div className="pause"></div> : <div className="play"></div>}
         </div>
         <div className="song_title">
             <span className="artist_name">
@@ -117,12 +114,12 @@ class Song extends Component {
         <div className="song_actions">
 
             <div className="song_button buttonCheck" onClick={()=>this.onClickCheckButton()}>
-            {this.state.isChecked ? <div className="checked"></div> :  <div className="unChecked"></div>}
+            {(this.props.checkedList[0] && this.props.checkedList[0].includes(song.id)) ? <div className="checked"></div> :  <div className="unChecked"></div>}
             </div>
 
             <div className="song_button buttonLike" onClick={()=>this.onClickLikeButton()}>
-            {this.state.isLiked ? <div className="liked"></div> :  <div className="unLiked"></div>}
-            {this.state.isLiked ? song.likes+1 : song.likes}
+            {(this.props.likedList[0] && this.props.likedList[0].includes(song.id)) ? <div className="liked"></div> :  <div className="unLiked"></div>}
+            {(this.props.likedList[0] && this.props.likedList[0].includes(song.id)) ? song.likes+1 : song.likes}
             </div>
             <div className="song_button buttonDownload"><a href={this.props.song.src} download> </a></div>
             <div className="song_duration">{song.length}</div>
@@ -136,7 +133,7 @@ const mapStateToProps = (state) => ({
     currentSong: state.playSong.currentSong,
     checkedList: state.playlist.checkedList,
     likedList: state.likedSongs.likedList,
-    isPlaying: state.isPlaying,
+    isPlaying: state.playSong.isPlaying,
 })
 
 const mapDispatchToProps = (dispatch) =>({
