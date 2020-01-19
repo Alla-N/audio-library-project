@@ -14,7 +14,8 @@ class Playlist extends Component {
         }
     }
 
-    changeAlbumState = () =>{   
+    changeAlbumState = () =>{ 
+        console.log (this.state)  
         this.props.addAlbum (this.state.currentAlbum);
     }
 
@@ -25,7 +26,8 @@ class Playlist extends Component {
             this.setState({
                 currentAlbum: currentAlbum
             })
-            this.changeAlbumState();
+
+            this.props.addAlbum (currentAlbum);
         }  
     }
 
