@@ -3,44 +3,28 @@ import './TopSongs.css';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {songs} from '../../songs';
-import TopSong from './TopSong/TopSong';
+import Song from '../../Song/Song';
 
 class TopSongs extends Component {
 
     componentDidMount = () => {
+        this.changeAlbumState();
+    }
+
+// click на кнопку "см.все"
+    onClickAllButton = () => {
+        this.changeFilterState();
+    }
+
+// передать в стейт информацию о текущем альбоме
+    changeAlbumState = () =>{
         let currentAlbum = songs.sort(function(a,b){return b.likes-a.likes}).slice(0,6);
         this.props.addAlbum (currentAlbum);
     }
 
-
-    UNSAFE_componentWillReceiveProps(nextProps){
-
-        if(nextProps.currentSongId  !== this.props.currentSongId ){
-
-        let album = this.props.currentAlbum[0];
-
-        let totalPage = Math.ceil(album.length/this.props.songsPerPag);
-    
-        let lastIndexes = [];
-    
-        for (let i=1; i<=totalPage; i++){
-            let index = i*this.props.songsPerPag-1;
-            if(index<album.length){
-                lastIndexes.push(index);
-            }else{
-                lastIndexes.push(album.length-1);
-            }
-        } 
-
-        let firstIndexes=[];
-
-        for (let i=0; i<totalPage; i++){
-            let index = i*(this.props.songsPerPag);
-            firstIndexes.push(index);
-        } 
-
-        this.props.addAlbumDetail(firstIndexes, lastIndexes, 1, totalPage);
-        }
+//поменять фильтр на "all" при переходе на все песни, если ранее был записан другой фильтр
+    changeFilterState = () =>{
+        this.props.addFilterToState("all");
     }
     
     render(){
@@ -48,57 +32,30 @@ class TopSongs extends Component {
     return(
         <div className='topSongs'>
             <h2>Топ композиций</h2>
-            <Link to="/songs" onClick={()=>this.props.addFilterToState("all")}>См. все</Link>
+            <Link to="/songs" onClick={()=>this.onClickAllButton()}>См. все</Link>
             <div className='topSongsBlock'>
             {
-                songs.sort(function(a,b){return b.likes-a.likes}).slice(0,6).map(({
-                    id,
-                    songName,
-                    artistName,
-                    src,
-                    hashtag,
-                    likes,
-                    length
-                })=>{
+                songs.sort(function(a,b){return b.likes-a.likes}).slice(0,6).map((song)=>{
                     return (
-                        <TopSong
-                            key={id}
-                            id={id}
-                            songName={songName}
-                            artistName={artistName}
-                            src={src}
-                            hashtag={hashtag}
-                            likes={likes}
-                            length={length}
+                        <Song
+                            key={song.id}
+                            song={song}
                         />
                     )
                 })
             }
+
             </div>
         </div>
     )
     }
 }
 
-const mapStateToProps = (state) =>({
-    filter: state.filteredSongs.filter,
-    songsPerPag: state.currentAlbum.songsPerPag,
-    currentPage: state.currentAlbum.currentPage,
-    currentAlbum: state.currentAlbum.album,
-    currentSongId: state.playSong.currentSongId,
-})
 
 const mapDispatchToProps = (dispatch) =>({
     addAlbum: (album) => dispatch({
         type:'ADD_ALBUM',
         album:album,
-        }),
-    addAlbumDetail: (firstIndexes, lastIndexes, currentPage, pagesLength) => dispatch({
-        type:'ADD_ALBUM_DETAILS',
-        firstIndexes: firstIndexes,
-        lastIndexes: lastIndexes,
-        currentPage: currentPage,
-        pagesLength: pagesLength,
         }),
     addFilterToState: (filter) => dispatch({
         type:'ADD_FILTER',
@@ -106,6 +63,6 @@ const mapDispatchToProps = (dispatch) =>({
     })
 })
 
-export default connect (mapStateToProps, mapDispatchToProps) (TopSongs);
+export default connect (null , mapDispatchToProps) (TopSongs);
 
 

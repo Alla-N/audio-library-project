@@ -2,34 +2,18 @@ export const playSongReducer = (state={
     
 }, action)=> {
     switch(action.type){
-        case 'PLAY_SONG':
-            return {
-                ...state,
-                currentSong: [action.src],
-                currentArtistName: [action.artistName],
-                currentSongName: [action.songName],
-                currentSongId:[action.id],
-                isPlaying:[action.isPlaying],
-            };
         case 'PLAY':
             return {
                 ...state,
+                currentSong: [action.song],
                 isPlaying: true,
             };
         case 'PAUSE':
             return {
                 ...state,
+                currentSong: [action.song],
                 isPlaying: false,
             };
-        case 'NEXT':
-            return {
-                ...state,
-                currentSong: [action.src],
-                currentArtistName: [action.artistName],
-                currentSongName: [action.songName],
-                currentSongId:[action.id],
-            };
-
         default: return state; 
     }
     

@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import './Playlist.css';
+import './Favorites.css';
 import {songs} from '../songs';
 import Song from '../Song/Song';
 import ScrollToTopOnMount from '../ScrollToTopOnMount';
 
 
-class Playlist extends Component {
+class Favorites extends Component {
     constructor(){
         super();
         this.state={
@@ -20,8 +20,8 @@ class Playlist extends Component {
 
 
     componentWillMount = () => { 
-        if(this.props.checkedList[0]){
-            let currentAlbum = songs.filter(e=>this.props.checkedList[0].includes(e.id));
+        if(this.props.likedList[0]){
+            let currentAlbum = songs.filter(e=>this.props.likedList[0].includes(e.id));
             this.setState({
                 currentAlbum: currentAlbum
             })
@@ -30,7 +30,7 @@ class Playlist extends Component {
     }
 
     componentDidUpdate = (prevProps) => {
-        if(prevProps.checkedList !== this.props.checkedList){
+        if(prevProps.likedList !== this.props.likedList){
             this.changeAlbumState();
         }
     }
@@ -95,11 +95,11 @@ class Playlist extends Component {
 
     render(){
         return(
-            <div className="playlist">
+            <div className="favorites">
             <ScrollToTopOnMount/>
-                <h2>Мой плейлист</h2>
+                <h2>Избранное</h2>
                 <h4>Сортировка:</h4>
-                <div className="playlist_sort">
+                <div className="favorites_sort">
                     <div><button onClick={this.sortArtist}>по автору</button></div>
                     <div><button onClick={this.sortName}>по названию</button></div>
                     <div><button onClick={this.sortRating}>по рейтингу</button></div>
@@ -122,7 +122,7 @@ class Playlist extends Component {
 
 const mapStateToProps = (state) =>({
     currentAlbum: state.currentAlbum.album,
-    checkedList: state.playlist.checkedList,
+    likedList: state.likedSongs.likedList,
 })
 
 const mapDispatchToProps = (dispatch) =>({
@@ -132,4 +132,4 @@ const mapDispatchToProps = (dispatch) =>({
         }),
 })
 
-export default connect (mapStateToProps, mapDispatchToProps) (Playlist);
+export default connect (mapStateToProps, mapDispatchToProps) (Favorites);

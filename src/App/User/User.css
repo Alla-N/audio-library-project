@@ -33,7 +33,7 @@
 }
 
 .authForm_input:valid+label {
-    background: url(../img/ok.png);
+    background: url(../img/icon_ok.png);
     background-repeat: no-repeat;
     background-position: center;
 

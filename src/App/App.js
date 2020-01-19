@@ -5,7 +5,7 @@ import Header from './Header/Header';
 import Aside from './Aside/Aside';
 import Main from './Main/Main';
 import Footer from './Footer/Footer';
-import TopArtistsPage from './TopArtistsPage/TopArtistsPage';
+import AllArtistsPage from './AllArtistsPage/AllArtistsPage';
 import User from './User/User';
 import Registration from './User/Registration/Registration';
 import Contacts from './About/Contacts/Contacts';
@@ -13,6 +13,7 @@ import Information from './About/Information/Information';
 import ArtistPage from './ArtistPage/ArtistPage';
 import SongsPage from './SongsPage/SongsPage';
 import Playlist from './Playlist/Playlist';
+import Favorites from './Favorites/Favorites';
 import ScrollToTopOnMount from './ScrollToTopOnMount';
 
 
@@ -24,7 +25,7 @@ class App extends Component {
       <ScrollToTopOnMount />
       <Header/>
       <Route exact path="/" component={Main}/>
-      <Route path = '/artists' component = {TopArtistsPage}/>
+      <Route path = '/artists' component = {AllArtistsPage}/>
       <Route path = '/songs' component = {SongsPage}/>
       <Route path = '/user' component = {User}/>
       <Route path = '/registration' component = {Registration}/>
@@ -34,6 +35,7 @@ class App extends Component {
       path = '/artist/:artistName'
       render = {props=><ArtistPage {...props}/>}></Route>
       <Route path = '/playlist' component = {Playlist}/>
+      <Route path = '/favorites' component = {Favorites}/>
       <Aside/>
       <Footer/>
     </div>

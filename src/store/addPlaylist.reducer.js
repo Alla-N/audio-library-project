@@ -1,26 +1,12 @@
 export const addPlaylistReducer = (state={
-    isChecked:{       
-    }
+    checkedList:{},
 }, action) => {
 
     switch(action.type) { 
     
-    case 'ADD_TO_PLAYLIST': 
-    return {
-        ...state,  
-        isChecked:{   
-            ...state.isChecked,
-            [action.id]:true,
-        } 
-    }; 
-    
-    case 'REMOVE_FROM_PLAYLIST': 
+    case 'CHANGE_PLAYLIST': 
     return { 
-        ...state,
-        isChecked:{
-            ...state.isChecked,
-            [action.id]:false,
-        },
+        checkedList: [action.checkedList] 
     };  
 
     default: return state; } 

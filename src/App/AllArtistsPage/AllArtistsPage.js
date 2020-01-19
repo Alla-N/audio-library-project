@@ -1,9 +1,9 @@
 import React from 'react';
-import './TopArtistsPage.css';
+import './AllArtistsPage.css';
 import {Link} from 'react-router-dom';
 import {artistsArray} from '../songs'
 
-const TopArtistsPage = () => {
+const AllArtistsPage = () => {
     return (
     <div className="topArtistsPage">
         <h1>Каталог исполнителей</h1>
@@ -11,11 +11,12 @@ const TopArtistsPage = () => {
         <div className="topArtistsBlock">
         {
             artistsArray.map(({
+                id,
                 artistName,
                 artistImg
             })=>{
                 return(
-                    <div className="topArtist">
+                    <div className="topArtist" key={id}>
                         <Link to={`/artist/${artistName}`}>
                         <img
                         src={process.env.PUBLIC_URL + artistImg}
@@ -32,4 +33,4 @@ const TopArtistsPage = () => {
     );
 }
 
-export default TopArtistsPage;
+export default AllArtistsPage;

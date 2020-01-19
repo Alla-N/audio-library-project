@@ -1,0 +1,171 @@
+.song {
+    width: 100%;
+    height: 60px;
+    padding: 5px 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.song_button {
+    width: 40px;
+    height: 40px;
+    opacity: 0.6;
+    cursor: pointer;
+}
+
+.song_button:hover {
+    opacity: 1;
+}
+
+/* -----------------button play---------------- */
+
+.buttonPlay {
+    width: 40px;
+    height: 40px;
+    max-width: 10%;
+    cursor: pointer;
+}
+
+.play {
+    width: 100%;
+    height: 100%;
+    border: 1px solid grey;
+    border-radius: 50%;
+    background: url(../img/icon_play.png);
+    background-repeat: no-repeat;
+    background-position: 8px;
+    opacity: 0.6;
+}
+
+.play:hover {
+    opacity: 1;
+    border: 1px solid  black;
+}
+
+.pause {
+    width: 100%;
+    height: 100%;
+    border: 1px solid black;
+    border-radius: 50%;
+    background: url(../img/icon_pause.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 1;
+}
+
+/* --------------song title------------- */
+
+.song_title {
+    width: 70%;
+    padding: 0 20px;
+}
+
+.artist_name {
+    font-weight: 700;
+}
+
+.artist_name a {
+    text-decoration: none;
+    color: black;
+    opacity: 0.6;
+    margin-right: 10px;
+}
+
+.artist_name a:hover {
+    text-decoration: underline;
+    opacity: 1;
+}
+
+/* ----------------------song actions---------------- */
+
+.song_actions {
+    width: 30%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.buttonCheck {
+    width: 60px;
+    line-height: 40px;
+    text-align: right;
+}
+
+.checked {
+    width: 30px;
+    height: 40px;
+    line-height: 40px;
+    background: url(../img/icon_checked.png);
+    background-repeat: no-repeat;
+    background-size: 24px;
+    background-position: 1px;
+    text-align: right;
+    vertical-align: middle;
+    float: left;
+}
+
+.unChecked {
+    width: 30px;
+    height: 40px;
+    line-height: 40px;
+    background: url(../img/icon_unchecked.png);
+    background-repeat: no-repeat;
+    background-size: 24px;
+    background-position: 1px;
+    text-align: right;
+    vertical-align: middle;
+    float: left;
+}
+
+.buttonLike {
+    width: 60px;
+    line-height: 40px;
+    text-align: right;
+}
+
+.liked {
+    width: 30px;
+    height: 40px;
+    line-height: 40px;
+    background: url(../img/icon_liked.png);
+    background-repeat: no-repeat;
+    background-size: 24px;
+    background-position: 1px;
+    text-align: right;
+    vertical-align: middle;
+    float: left;
+}
+
+.unLiked {
+    width: 30px;
+    height: 40px;
+    line-height: 40px;
+    background: url(../img/icon_unliked.png);
+    background-repeat: no-repeat;
+    background-size: 24px;
+    background-position: 1px;
+    text-align: right;
+    vertical-align: middle;
+    float: left;
+}
+
+.buttonDownload {
+    background: url(../img/icon_download.png);
+    background-repeat: no-repeat;
+    background-size: 24px;
+    background-position: center;
+    border-radius: 50%;
+    margin: 0 10px;
+}
+
+.buttonDownload a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.buttonDownload:hover {
+    border: 1px solid  black;
+}
