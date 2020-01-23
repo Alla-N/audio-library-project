@@ -122,7 +122,7 @@ class Song extends Component {
 
             <div className="song_button buttonLike" onClick={()=>this.onClickLikeButton()}>
             {(this.props.likedList[0] && this.props.likedList[0].includes(song.id)) ? <div className="liked"></div> :  <div className="unLiked"></div>}
-            {(this.props.likedList[0] && this.props.likedList[0].includes(song.id)) ? song.likes+1 : song.likes}
+            {(this.props.likedList[0] && this.props.likedList[0].includes(song.id)) ? <span>{song.likes+1}</span> : <span>{song.likes}</span>}
             </div>
             <div className="song_button buttonDownload"><a href={this.props.song.src} download> </a></div>
             <div className="song_duration">{song.length}</div>

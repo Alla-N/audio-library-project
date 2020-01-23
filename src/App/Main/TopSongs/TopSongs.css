@@ -6,8 +6,13 @@
 }
 
 .topSongs h2 {
-    margin-left: 10px;
-    width: 80%;
+    margin: 0 0 10px 20px;
+    width: 70%;
+    line-height: 20px;
+}
+
+.topSongs a {
+    margin: 0 0 10px 0;
 }
 
 .topSongsBlock {
@@ -15,4 +20,12 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+}
+
+/* ----------------- */
+
+@media (max-width: 425px){
+    .topSongs {
+        padding: 10px;
+    }
 }

@@ -35,3 +35,22 @@
     box-shadow: 3px 3px 5px grey;
 }
 
+@media (max-width: 425px){
+    .aside {
+        width: 100%;
+    }
+
+    .searchTags {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    .searchTags h3 {
+        width: 100%;
+    }
+    .searchTags a {
+        width: 30%;
+    }
+}
+
