@@ -31,9 +31,10 @@ class Song extends Component {
             this.props.pause();
             audio[0].pause()
         }else if(this.props.isPlaying && this.props.currentSong[0].id != this.props.song.id){
-                this.props.playNewSong(this.props.song)
+            this.props.playNewSong(this.props.song)
+        }else if(!this.props.isPlaying && !this.props.currentSong){
+            this.props.playNewSong(this.props.song)
         }else{
-            this.props.playNewSong(this.props.song);
             let audio = document.getElementsByTagName('audio');
             if(audio){
                 this.props.play();

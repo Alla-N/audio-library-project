@@ -35,9 +35,9 @@
 
 
 .mp3_buttons {
-    width: 5%;
+    width: 10%;
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
     line-height: 40px;
     height: 100%;
@@ -45,7 +45,7 @@
 }
 
 .mp3_title {
-    width: 95%;
+    width: 90%;
     height: 100%;
     padding: 0 20px;
     display: flex;
@@ -100,5 +100,27 @@
 
 .song_artistName a:hover {
     text-decoration: underline;
+}
+
+
+/* ------------------ */
+
+@media (max-width: 425px){
+    .mp3_buttons {
+        width: 20%;
+    }
+    
+    .mp3_title {
+        width: 80%;
+        padding: 0 5px;
+    }
+}
+
+/* ------------------ */
+
+@media (max-width: 375px){
+    .mp3_title>span:first-child {
+        display: none;
+    }
 }
 

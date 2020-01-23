@@ -79,7 +79,7 @@ class Footer extends Component {
                 </div>
         
                 <div className="mp3_title">
-                Текущая песня:
+                <span>Текущая песня:</span>              
                     { 
                     this.props.currentSong ?
                         <span className="mp3_title_block">
