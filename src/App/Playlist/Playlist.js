@@ -11,31 +11,20 @@ class Playlist extends Component {
         super();
         this.state={
             currentAlbum:[],
+            checkedList:[],
         }
     }
 
-    changeAlbumState = () =>{ 
-        console.log (this.state)  
-        this.props.addAlbum (this.state.currentAlbum);
-    }
 
-
-    componentWillMount = () => { 
-        if(this.props.checkedList[0]){
-            let currentAlbum = songs.filter(e=>this.props.checkedList[0].includes(e.id));
-            this.setState({
-                currentAlbum: currentAlbum
-            })
-
-            this.props.addAlbum (currentAlbum);
-        }  
-    }
-
-    componentDidUpdate = (prevProps) => {
-        if(prevProps.checkedList !== this.props.checkedList){
-            this.changeAlbumState();
+    static getDerivedStateFromProps = (nextProps, prevState) => {
+        if(nextProps.checkedList !== prevState.checkedList){
+            let currentAlbum = nextProps.checkedList[0] ? songs.filter(e=>nextProps.checkedList[0].includes(e.id)) : [];
+            nextProps.addAlbum (currentAlbum);
+            return { currentAlbum: currentAlbum, checkedList: nextProps.checkedList};
         }
+        else return null;
     }
+
 
     sortArtist = () => {
         this.setState({

@@ -104,7 +104,7 @@ class SongsPage extends Component {
         } 
 
         return(
-            <div className="songPage">
+            <div className="songsPage">
             <ScrollToTopOnMount/>
             {
             (this.props.filter && this.props.filter != "all") ? 

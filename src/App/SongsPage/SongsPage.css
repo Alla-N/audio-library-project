@@ -1,4 +1,4 @@
-.songPage {
+.songsPage {
     width: 70%;
     background-color: white;
     margin-right: 12px;
@@ -7,8 +7,16 @@
     padding-bottom: 100px;
 }
 
-.songPage h2 {
+.songsPage h2 {
     text-indent: 20px;
+}
+
+.pagination {
+    text-align: left;
+}
+
+.pagination ul {
+    padding: 0 20px;
 }
 
 .pagination_item {
@@ -38,4 +46,30 @@
 
 .pagination_item:hover {
     background-color: gainsboro;
+}
+
+/* ----------------------- */
+
+@media (max-width: 700px){
+    .songsPage {
+        width: 100%;
+        margin-right: 0;
+        padding-bottom: 10px;
+    }
+}
+
+/* --------------------- */
+
+@media (max-width:425px){
+    .songsPage h2 {
+        text-align: center;
+    }
+
+    .pagination {
+        text-align: center;
+    }
+    
+    .pagination ul {
+        padding: 0;
+    }
 }

@@ -5,10 +5,10 @@ import {artistsArray} from '../songs'
 
 const AllArtistsPage = () => {
     return (
-    <div className="topArtistsPage">
+    <div className="allArtistsPage">
         <h1>Каталог исполнителей</h1>
         <Link to="/">На главную</Link>
-        <div className="topArtistsBlock">
+        <div className="allArtistsBlock">
         {
             artistsArray.map(({
                 id,
@@ -16,7 +16,7 @@ const AllArtistsPage = () => {
                 artistImg
             })=>{
                 return(
-                    <div className="topArtist" key={id}>
+                    <div className="artist" key={id}>
                         <Link to={`/artist/${artistName}`}>
                         <img
                         src={process.env.PUBLIC_URL + artistImg}

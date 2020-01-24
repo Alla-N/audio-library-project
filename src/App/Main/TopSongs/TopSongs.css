@@ -1,5 +1,5 @@
 .topSongs {
-    padding: 10px 10px 100px;
+    padding: 20px 10px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;

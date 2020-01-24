@@ -11,28 +11,18 @@ class Favorites extends Component {
         super();
         this.state={
             currentAlbum:[],
+            likedList:[],
         }
     }
 
-    changeAlbumState = () =>{   
-        this.props.addAlbum (this.state.currentAlbum);
-    }
 
-
-    componentWillMount = () => { 
-        if(this.props.likedList[0]){
-            let currentAlbum = songs.filter(e=>this.props.likedList[0].includes(e.id));
-            this.setState({
-                currentAlbum: currentAlbum
-            })
-            this.changeAlbumState();
-        }  
-    }
-
-    componentDidUpdate = (prevProps) => {
-        if(prevProps.likedList !== this.props.likedList){
-            this.changeAlbumState();
+    static getDerivedStateFromProps = (nextProps, prevState) => {
+        if(nextProps.likedList !== prevState.likedList){
+            let currentAlbum = nextProps.likedList[0] ? songs.filter(e=>nextProps.likedList[0].includes(e.id)) : [];
+            nextProps.addAlbum (currentAlbum);
+            return { currentAlbum: currentAlbum, likedList: nextProps.likedList};
         }
+        else return null;
     }
 
     sortArtist = () => {

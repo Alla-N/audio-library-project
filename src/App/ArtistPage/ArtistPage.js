@@ -33,15 +33,11 @@ class ArtistPage extends Component {
             <div className="artistPage">
             <ScrollToTopOnMount/>
                 <div className="artistInfo">
-                    <div>
+                    <div className="artistInfo_photo">
                         <img src={process.env.PUBLIC_URL + artist.artistImg} alt="artistPhoto"></img>
                     </div>
-                    <h2>{artist.artistName}</h2>
+                    <h2 className="artistInfo_name">{artist.artistName}</h2>
                 </div>
-                <div className="artistSongs">
-
-                </div>
-
                 <div className="artistSongs">
                 {songs.filter(element=>element.artistName === name).map((song)=>{
                     return (

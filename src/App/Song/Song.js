@@ -4,13 +4,6 @@ import {connect} from 'react-redux';
 import './Song.css';
 
 class Song extends Component {
-    constructor(){
-        super();
-        this.state = {
-            isChecked : false,
-            isLiked: false,
-        }
-    }
 
     onClickPlayButton = () => {
         this.changePlayState();
@@ -26,75 +19,68 @@ class Song extends Component {
 
 // поменять статус проигрывания песни
     changePlayState = () =>{
+        let audio = document.getElementsByTagName('audio');  
+
         if(this.props.isPlaying){
-            let audio = document.getElementsByTagName('audio')
-            this.props.pause();
-            audio[0].pause()
-        }else if(this.props.isPlaying && this.props.currentSong[0].id != this.props.song.id){
-            this.props.playNewSong(this.props.song)
-        }else if(!this.props.isPlaying && !this.props.currentSong){
-            this.props.playNewSong(this.props.song)
-        }else{
-            let audio = document.getElementsByTagName('audio');
-            if(audio){
-                this.props.play();
-                audio[0].play()
+
+            if(this.props.currentSong[0].id == this.props.song.id){
+                this.props.pause();
+                audio[0].pause();
+            }else{
+                this.props.playNewSong(this.props.song);
             }
+        }else{
+
+            if(!this.props.currentSong || this.props.currentSong[0].id != this.props.song.id){
+                this.props.playNewSong(this.props.song)
+            }else{
+                    this.props.play();
+                    audio[0].play()
+            }
+
         }
     }
 
 // внести или удалить id выбраной песни в плейлист
     changeCheckState = () =>{
+        let id  =this.props.song.id;
         let checkedList;
         if(this.props.checkedList[0]){
             checkedList = this.props.checkedList[0];
+            if(this.props.checkedList[0].includes(id)){
+                let index = checkedList.indexOf(id);
+                checkedList.splice(index,1)
+                this.props.changePlaylist(checkedList);        
+            }else{ 
+                checkedList.push(id);    
+                this.props.changePlaylist(checkedList);
+            }
         }else{
             checkedList = [];
-        }
-
-        if(this.state.isChecked){
-            this.setState((prevState)=>({
-                ...prevState,
-                isChecked: false
-            }))
-            let index = checkedList.indexOf(this.props.song.id);
-            checkedList.splice(index,1)
-            this.props.changePlaylist(checkedList);        
-        }else{ 
-            this.setState((prevState)=>({
-                ...prevState,
-                isChecked: true,
-            }))
-            checkedList.push(this.props.song.id);    
+            checkedList.push(id);    
             this.props.changePlaylist(checkedList);
-        }
+        } 
     }
 
 // внести или удалить id выбраной песни в список лайкнутых 
     changeLikeState = () =>{
+        let id  =this.props.song.id;
         let likedList;
         if(this.props.likedList[0]){
             likedList = this.props.likedList[0];
+            if(this.props.likedList[0].includes(id)){
+                let index = likedList.indexOf(id);
+                likedList.splice(index,1)
+                this.props.changeLikedList(likedList);        
+            }else{ 
+                likedList.push(id);    
+                this.props.changeLikedList(likedList);
+            }
         }else{
             likedList = [];
-        }
-
-        if(this.state.isLiked){
-            this.setState((prevState)=>({
-                ...prevState,
-                isLiked: false,
-            }))
-            let index = likedList.indexOf(this.props.song.id);
-            likedList.splice(index,1)
-            this.props.changeLikedList(likedList);        
-        }else{ 
-            this.setState((prevState)=>({
-                ...prevState,
-                isLiked: true,
-            }))
-            likedList.push(this.props.song.id);    
+            likedList.push(id);    
             this.props.changeLikedList(likedList);
-        }
+        }       
     }
 
 

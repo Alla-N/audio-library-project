@@ -37,3 +37,30 @@
     border: 1px solid white;
     box-shadow: inset 5px 5px 10px grey;
 }
+
+/* ----------------- */
+
+@media (max-width: 700px){
+    .favorites {
+        width: 100%;
+        margin-right: 0;
+        padding-bottom: 10px;
+    }
+}
+
+/* ---------------- */
+
+@media (max-width: 425px){
+    .favorites h2 {
+        text-align: center;
+    }
+}
+
+/* ---------------- */
+
+@media (max-width: 380px){
+    .favorites_sort div {
+        width: 40%;
+        margin-bottom: 10px;
+    }
+}
