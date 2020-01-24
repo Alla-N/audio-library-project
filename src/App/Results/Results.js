@@ -8,7 +8,9 @@ import Song from '../Song/Song';
 
 
 class Results extends Component{
-
+    componentDidMount = () => {
+        this.changeAlbumState();
+    }
     componentDidUpdate = () => {
         this.changeAlbumState();
     }
