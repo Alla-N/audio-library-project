@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
+import {connect} from 'react-redux';
 import './Results.css';
 import {songs} from '../songs';
 import {artistsArray} from '../songs';
@@ -7,6 +8,16 @@ import Song from '../Song/Song';
 
 
 class Results extends Component{
+
+    componentDidUpdate = () => {
+        this.changeAlbumState();
+    }
+
+    // передать в стейт информацию о текущем альбоме
+    changeAlbumState = () =>{
+        let currentAlbum = songs.filter(e=>((new RegExp(localStorage.getItem('searchData'), 'i')).test(e.songName)))
+        this.props.addAlbum (currentAlbum);
+    }
 
     render(){
         return(
@@ -59,4 +70,11 @@ class Results extends Component{
     }
 }
 
-export default Results;
+const mapDispatchToProps = (dispatch) =>({
+    addAlbum: (album) => dispatch({
+        type:'ADD_ALBUM',
+        album:album,
+        }),
+})
+
+export default connect(null,mapDispatchToProps) (Results);
