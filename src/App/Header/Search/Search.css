@@ -6,6 +6,12 @@
     height: 45px;
 }
 
+.search a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
 .search form {
     position: relative;
     width: 90%;

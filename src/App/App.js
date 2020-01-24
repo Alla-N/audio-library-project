@@ -14,6 +14,7 @@ import ArtistPage from './ArtistPage/ArtistPage';
 import SongsPage from './SongsPage/SongsPage';
 import Playlist from './Playlist/Playlist';
 import Favorites from './Favorites/Favorites';
+import Results from './Results/Results';
 import ScrollToTopOnMount from './ScrollToTopOnMount';
 
 
@@ -36,6 +37,7 @@ class App extends Component {
       render = {props=><ArtistPage {...props}/>}></Route>
       <Route path = '/playlist' component = {Playlist}/>
       <Route path = '/favorites' component = {Favorites}/>
+      <Route path = '/results' component = {Results}/>
       <Aside/>
       <Footer/>
     </div>
