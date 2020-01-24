@@ -36,13 +36,21 @@ class Footer extends Component {
 // играть следующий трек
     playNextSong = () => {
         let album = this.props.currentAlbum[0];
-        this.props.playNewSong(album[this.state.indexNextSong]);
+        if(album.length>0){
+            this.props.playNewSong(album[this.state.indexNextSong]);
+        }else{
+            alert("В альбоме нет песен")
+        }
     }
 
 // играть предыдущий трек
     playPrevSong = () => {
         let album = this.props.currentAlbum[0];
-        this.props.playNewSong(album[this.state.indexPrevSong]);
+        if(album.length>0){
+            this.props.playNewSong(album[this.state.indexPrevSong]);
+        }else{
+            alert("В альбоме нет песен")
+        }
     }
 
 
