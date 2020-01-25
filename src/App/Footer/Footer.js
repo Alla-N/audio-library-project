@@ -37,7 +37,7 @@ class Footer extends Component {
 // Переключить страницу вперед если закончила играть последняя песня
 changePageNext = () => {
     let pages = document.querySelectorAll(".pagination li")
-    if(pages){
+    if(pages.length>0){
         if(this.state.indexNextSong !== 0 && this.state.indexNextSong%10 === 0){
             let pageNumber = this.state.indexNextSong/10;
             pages[pageNumber].click()       
@@ -51,8 +51,7 @@ changePageNext = () => {
 changePagePrev = () => {
     let pages = document.querySelectorAll(".pagination li");
     let pageNumber;
-    console.log(pages[3])
-    if(pages){
+    if(pages.length>0){
         if(this.state.currentIndex%10 === 0 && this.state.currentIndex !== 0){
             pageNumber = this.state.currentIndex/10 - 1;
             pages[pageNumber].click()       
