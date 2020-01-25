@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/audio-library-project/static/css/main.8ef5d74a.chunk.css",
+    "main.js": "/audio-library-project/static/js/main.10cbded5.chunk.js",
+    "main.js.map": "/audio-library-project/static/js/main.10cbded5.chunk.js.map",
+    "runtime-main.js": "/audio-library-project/static/js/runtime-main.0d7a0cd4.js",
+    "runtime-main.js.map": "/audio-library-project/static/js/runtime-main.0d7a0cd4.js.map",
+    "static/js/2.abde412f.chunk.js": "/audio-library-project/static/js/2.abde412f.chunk.js",
+    "static/js/2.abde412f.chunk.js.map": "/audio-library-project/static/js/2.abde412f.chunk.js.map",
+    "index.html": "/audio-library-project/index.html",
+    "precache-manifest.4820ebe69946590dddf95b7cce1467b7.js": "/audio-library-project/precache-manifest.4820ebe69946590dddf95b7cce1467b7.js",
+    "service-worker.js": "/audio-library-project/service-worker.js",
+    "static/css/main.8ef5d74a.chunk.css.map": "/audio-library-project/static/css/main.8ef5d74a.chunk.css.map",
+    "static/js/2.abde412f.chunk.js.LICENSE": "/audio-library-project/static/js/2.abde412f.chunk.js.LICENSE"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.0d7a0cd4.js",
+    "static/js/2.abde412f.chunk.js",
+    "static/css/main.8ef5d74a.chunk.css",
+    "static/js/main.10cbded5.chunk.js"
+  ]
+}
