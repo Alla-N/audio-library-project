@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import {Route} from 'react-router-dom';
+import {Route, Switch} from 'react-router-dom';
 import './App.css';
 import Header from './Header/Header';
 import Aside from './Aside/Aside';
@@ -25,19 +25,21 @@ class App extends Component {
     <div className = 'App'>
       <ScrollToTopOnMount />
       <Header/>
-      <Route exact path="/" component={Main}/>
-      <Route path = '/artists' component = {AllArtistsPage}/>
-      <Route path = '/songs' component = {SongsPage}/>
-      <Route path = '/user' component = {User}/>
-      <Route path = '/registration' component = {Registration}/>
-      <Route path = '/contacts' component = {Contacts}/>
-      <Route path = '/information' component = {Information}/>
-      <Route 
-      path = '/artist/:artistName'
-      render = {props=><ArtistPage {...props}/>}></Route>
-      <Route path = '/playlist' component = {Playlist}/>
-      <Route path = '/favorites' component = {Favorites}/>
-      <Route path = '/results' component = {Results}/>
+      <Switch>
+        <Route exact path="/" component={Main}/>
+        <Route path = '/artists' component = {AllArtistsPage}/>
+        <Route path = '/songs' component = {SongsPage}/>
+        <Route path = '/user' component = {User}/>
+        <Route path = '/registration' component = {Registration}/>
+        <Route path = '/contacts' component = {Contacts}/>
+        <Route path = '/information' component = {Information}/>
+        <Route 
+        path = '/artist/:artistName'
+        render = {props=><ArtistPage {...props}/>}></Route>
+        <Route path = '/playlist' component = {Playlist}/>
+        <Route path = '/favorites' component = {Favorites}/>
+        <Route path = '/results' component = {Results}/>
+      </Switch>
       <Aside/>
       <Footer/>
     </div>

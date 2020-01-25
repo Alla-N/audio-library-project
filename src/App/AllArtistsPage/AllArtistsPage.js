@@ -16,7 +16,7 @@ const AllArtistsPage = () => {
                 artistImg
             })=>{
                 return(
-                    <div className="artist" key={id}>
+                    <div className="topArtist" key={id}>
                         <Link to={`/artist/${artistName}`}>
                         <img
                         src={process.env.PUBLIC_URL + artistImg}

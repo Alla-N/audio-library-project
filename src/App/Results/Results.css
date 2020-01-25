@@ -34,7 +34,7 @@
 }
 
 .results .artists_block__artist img:hover {
-    border: 1px solid yellow;
+    border: 1px solid #0066ff;
     box-shadow: 5px 5px 10px grey;
     border-radius: 50%;
 }
