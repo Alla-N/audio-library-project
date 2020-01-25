@@ -14,15 +14,14 @@ class Search extends Component {
     handleInputChange = () => {
         let input = document.getElementById('search_input')
         let value = input.value.toLowerCase();
-    
+
         this.setState({ 
             searchData: value,
         });
-        console.log(this.state)
     }
 
     saveSearchDataToStorage = () => {
-        localStorage.setItem('searchData', this.state.searchData);
+            localStorage.setItem('searchData', this.state.searchData.trim());
     }
 
     onClickSearch = () => {

@@ -28,16 +28,48 @@ class Footer extends Component {
         let prevIndex = index === 0 ? album.length-1 : index-1;
 
         this.setState({
+            currentIndex: index,
             indexNextSong: nextIndex,
             indexPrevSong: prevIndex,
         })
     }
+
+// Переключить страницу вперед если закончила играть последняя песня
+changePageNext = () => {
+    let pages = document.querySelectorAll(".pagination li")
+    if(pages){
+        if(this.state.indexNextSong !== 0 && this.state.indexNextSong%10 === 0){
+            let pageNumber = this.state.indexNextSong/10;
+            pages[pageNumber].click()       
+        }else if(this.state.indexNextSong === 0){
+            pages[0].click() 
+        }
+    }      
+}
+
+//Переключить страницу назад
+changePagePrev = () => {
+    let pages = document.querySelectorAll(".pagination li");
+    let pageNumber;
+    console.log(pages[3])
+    if(pages){
+        if(this.state.currentIndex%10 === 0 && this.state.currentIndex !== 0){
+            pageNumber = this.state.currentIndex/10 - 1;
+            pages[pageNumber].click()       
+        }else if(this.state.currentIndex === 0){
+            pageNumber = pages.length-1
+            pages[pageNumber].click() 
+        }
+    }      
+}
+
 
 // играть следующий трек
     playNextSong = () => {
         let album = this.props.currentAlbum[0];
         if(album.length>0){
             this.props.playNewSong(album[this.state.indexNextSong]);
+            this.changePageNext();
         }else{
             alert("В альбоме нет песен")
         }
@@ -48,6 +80,7 @@ class Footer extends Component {
         let album = this.props.currentAlbum[0];
         if(album.length>0){
             this.props.playNewSong(album[this.state.indexPrevSong]);
+            this.changePagePrev();
         }else{
             alert("В альбоме нет песен")
         }
