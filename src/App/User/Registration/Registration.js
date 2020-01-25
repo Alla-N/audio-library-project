@@ -49,6 +49,7 @@ class Registration extends Component {
 
         if(this.state.isPassEqual){
             localStorage.setItem('user', JSON.stringify(user));
+            alert("Вы зарегистрированы")
         }else{
             let input1 = document.getElementById('input_pass_reg');
             let input2 = document.getElementById('input_pass2_reg');
@@ -117,7 +118,7 @@ class Registration extends Component {
                 id="input_pass_reg" 
                 name="password" 
                 autoComplete="on"
-                pattern="\d{6,10}"
+                pattern="\d+"
                 className="authForm_input" 
                 placeholder="Введите пароль(от 6 до 10 символов)"
                 required>
@@ -132,7 +133,7 @@ class Registration extends Component {
                 id="input_pass2_reg" 
                 name="password2"
                 autoComplete="on"
-                pattern="\d{6,10}"
+                pattern="\d+"
                 className="authForm_input" 
                 placeholder="Повторите пароль"
                 required>

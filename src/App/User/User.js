@@ -28,7 +28,8 @@ class User extends Component {
                 <input 
                 type="email" 
                 id="input_email" 
-                name="email" 
+                name="email"
+                pattern="^\S+\@\S+\.[a-zA-Z0-9-.]+$"   
                 autoComplete="on" 
                 className="authForm_input"  placeholder="Email"
                 required>
@@ -39,8 +40,7 @@ class User extends Component {
                 <input 
                 type="password" 
                 id="input_pass" 
-                name="pass"
-                pattern="^\S+\@\S+\.[a-zA-Z0-9-.]+$"  
+                name="pass"               
                 className="authForm_input"  placeholder="Пароль"
                 required>
                 </input>
