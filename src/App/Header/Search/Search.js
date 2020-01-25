@@ -21,7 +21,7 @@ class Search extends Component {
     }
 
     saveSearchDataToStorage = () => {
-            localStorage.setItem('searchData', this.state.searchData.trim());
+        localStorage.setItem('searchData', this.state.searchData.trim());
     }
 
     onClickSearch = () => {
@@ -39,7 +39,7 @@ class Search extends Component {
             onChange = {this.handleInputChange} 
             value={this.state.searchData}    
             />
-            <button type="submit"><Link to="/results" onClick={this.onClickSearch}></Link></button>
+            <button type="button"><Link to="/results" onClick={this.onClickSearch}></Link></button>
         </form>
         </div>
     )

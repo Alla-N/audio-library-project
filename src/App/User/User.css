@@ -32,7 +32,7 @@
 
 }
 
-.authForm_input::valid+label {
+.authForm_input:valid+label {
     background: url(../img/icon_ok.png);
     background-repeat: no-repeat;
     background-position: center;
@@ -64,7 +64,7 @@
     cursor: pointer;
 }
 
-.authForm_button::hover {
+.authForm_button:hover {
     background-color: #fcee7e;
 }
 
