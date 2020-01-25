@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/audio-library-project/static/css/main.ea0b503b.chunk.css",
-    "main.js": "/audio-library-project/static/js/main.525c8fe4.chunk.js",
-    "main.js.map": "/audio-library-project/static/js/main.525c8fe4.chunk.js.map",
+    "main.css": "/audio-library-project/static/css/main.3d91767e.chunk.css",
+    "main.js": "/audio-library-project/static/js/main.8d182017.chunk.js",
+    "main.js.map": "/audio-library-project/static/js/main.8d182017.chunk.js.map",
     "runtime-main.js": "/audio-library-project/static/js/runtime-main.0d7a0cd4.js",
     "runtime-main.js.map": "/audio-library-project/static/js/runtime-main.0d7a0cd4.js.map",
     "static/js/2.fc099964.chunk.js": "/audio-library-project/static/js/2.fc099964.chunk.js",
     "static/js/2.fc099964.chunk.js.map": "/audio-library-project/static/js/2.fc099964.chunk.js.map",
     "index.html": "/audio-library-project/index.html",
-    "precache-manifest.cf1ee89677c4affe8c2c5a7b060d6061.js": "/audio-library-project/precache-manifest.cf1ee89677c4affe8c2c5a7b060d6061.js",
+    "precache-manifest.80592a755318bdee6f081ca21995ae15.js": "/audio-library-project/precache-manifest.80592a755318bdee6f081ca21995ae15.js",
     "service-worker.js": "/audio-library-project/service-worker.js",
-    "static/css/main.ea0b503b.chunk.css.map": "/audio-library-project/static/css/main.ea0b503b.chunk.css.map",
+    "static/css/main.3d91767e.chunk.css.map": "/audio-library-project/static/css/main.3d91767e.chunk.css.map",
     "static/js/2.fc099964.chunk.js.LICENSE": "/audio-library-project/static/js/2.fc099964.chunk.js.LICENSE"
   },
   "entrypoints": [
     "static/js/runtime-main.0d7a0cd4.js",
     "static/js/2.fc099964.chunk.js",
-    "static/css/main.ea0b503b.chunk.css",
-    "static/js/main.525c8fe4.chunk.js"
+    "static/css/main.3d91767e.chunk.css",
+    "static/js/main.8d182017.chunk.js"
   ]
 }
