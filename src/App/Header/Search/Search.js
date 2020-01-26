@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
+import {connect} from 'react-redux';
 import './Search.css'
 
 
@@ -20,12 +21,12 @@ class Search extends Component {
         });
     }
 
-    saveSearchDataToStorage = () => {
-        localStorage.setItem('searchData', this.state.searchData.trim());
+    saveSearchDataToState = () => {
+        this.props.addSearchData (this.state.searchData.trim());
     }
 
     onClickSearch = () => {
-        this.saveSearchDataToStorage();
+        this.saveSearchDataToState();
     }
 
     render(){
@@ -46,4 +47,11 @@ class Search extends Component {
     }
 }
 
-export default Search;
+const mapDispatchToProps = (dispatch)=>({
+    addSearchData: (value)=> dispatch({
+        type:"ADD_SEARCH_DATA",
+        value: value,
+    })
+})
+
+export default connect(null, mapDispatchToProps) (Search);

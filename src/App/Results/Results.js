@@ -8,6 +8,13 @@ import Song from '../Song/Song';
 
 
 class Results extends Component{
+    constructor(){
+        super();
+        this.state = {
+            searchData: "",
+        }
+    }
+
     componentDidMount = () => {
         this.changeAlbumState();
     }
@@ -21,6 +28,13 @@ class Results extends Component{
         this.props.addAlbum (currentAlbum);
     }
 
+    static getDerivedStateFromProps = (nextProps, prevState) => {
+        if(nextProps.searchData !== prevState.searchData){
+            return { searchData: (new RegExp(nextProps.searchData[0], 'i'))};
+        }
+        else return null;
+    }
+
     render(){
         return(
             <div className="results">
@@ -28,8 +42,7 @@ class Results extends Component{
                 <h3>Исполнители:</h3>
                 <div className="artists_block">
                     {
-                        localStorage.getItem('searchData') ? (
-                        artistsArray.filter(e=>((new RegExp(localStorage.getItem('searchData'), 'i')).test(e.artistName))).map(({
+                        artistsArray.filter(e=>(this.state.searchData.test(e.artistName))).map(({
                             id,
                             artistName,
                             artistImg,
@@ -46,31 +59,29 @@ class Results extends Component{
                                 </div>
                             )
                         })
-                        )
-                        :
-                        (<span></span>)
                     }                   
                 </div>
                 <h3>Композиции:</h3>
                 <div className="songs_block">
                 {
-                    localStorage.getItem('searchData') ? (
-                    songs.filter(e=>((new RegExp(localStorage.getItem('searchData'), 'i')).test(e.songName))).map(song=>{
+                    songs.filter(e=>(this.state.searchData.test(e.songName))).map(song=>{
                         return(
                         <Song
                             key={song.id}
                             song={song}
                         />
                         )
-                    }))
-                    :
-                    (<span></span>)
+                    })
                 }
                 </div>
             </div>
         )
     }
 }
+
+const mapStateToProps = (state)=>({
+    searchData: state.searchData.value,
+})
 
 const mapDispatchToProps = (dispatch) =>({
     addAlbum: (album) => dispatch({
@@ -79,4 +90,4 @@ const mapDispatchToProps = (dispatch) =>({
         }),
 })
 
-export default connect(null,mapDispatchToProps) (Results);
+export default connect(mapStateToProps, mapDispatchToProps) (Results);
