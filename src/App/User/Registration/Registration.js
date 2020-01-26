@@ -32,9 +32,6 @@ class Registration extends Component {
                 ...prevState.user, [name]: value
             }
         }));
-
-        console.log(value)
-
     }
 
     

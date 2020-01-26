@@ -35,12 +35,14 @@ class Search extends Component {
         <form>
             <input 
             id="search_input" 
-            type="text" 
+            type="text"
+            pattern="[a-zA-Z0-9-. ]+" 
             placeholder="Поиск трека"
             onChange = {this.handleInputChange} 
-            value={this.state.searchData}    
+            value={this.state.searchData}
+            required   
             />
-            <button type="button"><Link to="/results" onClick={this.onClickSearch}></Link></button>
+            <button type="submit"><Link to="/results" onClick={this.onClickSearch}></Link></button>
         </form>
         </div>
     )

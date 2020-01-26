@@ -11,7 +11,7 @@ class Results extends Component{
     constructor(){
         super();
         this.state = {
-            searchData: "",
+            searchData: false,
         }
     }
 
@@ -24,13 +24,16 @@ class Results extends Component{
 
     // передать в стейт информацию о текущем альбоме
     changeAlbumState = () =>{
-        let currentAlbum = songs.filter(e=>((new RegExp(localStorage.getItem('searchData'), 'i')).test(e.songName)))
+        let currentAlbum = songs.filter(e=>(e.songName.toLowerCase().includes(this.state.searchData)))
         this.props.addAlbum (currentAlbum);
     }
 
     static getDerivedStateFromProps = (nextProps, prevState) => {
-        if(nextProps.searchData !== prevState.searchData){
-            return { searchData: (new RegExp(nextProps.searchData[0], 'i'))};
+        if(nextProps.searchData !== prevState.searchData && nextProps.searchData[0].length>0){
+            console.log(prevState)
+            return { searchData: nextProps.searchData[0]};
+        }else if(nextProps.searchData[0].length === 0){
+            return { searchData: false};
         }
         else return null;
     }
@@ -42,7 +45,8 @@ class Results extends Component{
                 <h3>Исполнители:</h3>
                 <div className="artists_block">
                     {
-                        artistsArray.filter(e=>(this.state.searchData.test(e.artistName))).map(({
+                        this.state.searchData ?
+                        (artistsArray.filter(e=>(e.artistName.toLowerCase().includes(this.state.searchData))).map(({
                             id,
                             artistName,
                             artistImg,
@@ -58,20 +62,25 @@ class Results extends Component{
                                     <h3>{artistName}</h3>
                                 </div>
                             )
-                        })
+                        }))
+                        :
+                        <span></span>
                     }                   
                 </div>
                 <h3>Композиции:</h3>
                 <div className="songs_block">
                 {
-                    songs.filter(e=>(this.state.searchData.test(e.songName))).map(song=>{
+                    this.state.searchData ?
+                    (songs.filter(e=>(e.songName.toLowerCase().includes(this.state.searchData))).map(song=>{
                         return(
                         <Song
                             key={song.id}
                             song={song}
                         />
                         )
-                    })
+                    }))
+                    :
+                    <span></span>
                 }
                 </div>
             </div>
