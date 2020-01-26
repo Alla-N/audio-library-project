@@ -29,11 +29,9 @@ class Results extends Component{
     }
 
     static getDerivedStateFromProps = (nextProps, prevState) => {
-        if(nextProps.searchData !== prevState.searchData && nextProps.searchData[0].length>0){
+        if(nextProps.searchData !== prevState.searchData){
             console.log(prevState)
             return { searchData: nextProps.searchData[0]};
-        }else if(nextProps.searchData[0].length === 0){
-            return { searchData: false};
         }
         else return null;
     }
