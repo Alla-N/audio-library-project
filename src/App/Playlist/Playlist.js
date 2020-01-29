@@ -12,18 +12,20 @@ class Playlist extends Component {
         this.state={
             currentAlbum:[],
             checkedList:[],
+            checkedListLength: 0,
         }
     }
 
 
     static getDerivedStateFromProps = (nextProps, prevState) => {
-        if(nextProps.checkedList !== prevState.checkedList){
-            let currentAlbum = nextProps.checkedList[0] ? songs.filter(e=>nextProps.checkedList[0].includes(e.id)) : [];
+        if(nextProps.checkedListLength !== prevState.checkedListLength){
+            let currentAlbum = songs.filter(e=>nextProps.checkedList.includes(e.id));
             nextProps.addAlbum (currentAlbum);
-            return { currentAlbum: currentAlbum, checkedList: nextProps.checkedList};
+            return { currentAlbum: currentAlbum, checkedList: nextProps.checkedList, checkedListLength: nextProps.checkedListLength };
         }
         else return null;
     }
+
 
 
     sortArtist = () => {
@@ -114,6 +116,7 @@ class Playlist extends Component {
 const mapStateToProps = (state) =>({
     currentAlbum: state.currentAlbum.album,
     checkedList: state.playlist.checkedList,
+    checkedListLength: state.playlist.length,
 })
 
 const mapDispatchToProps = (dispatch) =>({

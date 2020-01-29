@@ -1,12 +1,13 @@
 export const addPlaylistReducer = (state={
-    checkedList:{},
+    checkedList:[],
 }, action) => {
 
     switch(action.type) { 
     
     case 'CHANGE_PLAYLIST': 
     return { 
-        checkedList: [action.checkedList] 
+        checkedList: action.checkedList, 
+        length: action.length,
     };  
 
     default: return state; } 

@@ -5,7 +5,7 @@ export const filterSongsReducer = (state={
         case 'ADD_FILTER':
             return{
                 ...state,
-                filter:[action.filter],
+                filter:action.filter,
             }
         default: return state;}
 }

@@ -7,7 +7,7 @@ export const currentAlbumReducer = (state={
     case 'ADD_ALBUM': 
     return { 
         ...state,
-        album:[action.album],
+        album:action.album,
     }; 
     
     default: return state; } 

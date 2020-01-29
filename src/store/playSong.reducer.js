@@ -1,11 +1,11 @@
 export const playSongReducer = (state={
+    currentSong:null,
     isPlaying: false,
 }, action)=> {
     switch(action.type){
         case 'PLAY_NEW_SONG':
             return {
-                ...state,
-                currentSong: [action.song],
+                currentSong: action.song,
                 isPlaying: true,
             };
         case 'PLAY':

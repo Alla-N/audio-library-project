@@ -21,9 +21,9 @@ class Footer extends Component {
     }
 
 // установить индекы предыдущей и следующей песни в альбоме относительно текущей
-    setIndexes = () => {
-        let album = this.props.currentAlbum[0];
-        let index = album.findIndex(e => e.id === this.props.currentSong[0].id);
+    getIndexes = () => {
+        let album = this.props.currentAlbum;
+        let index = album.findIndex(e => e.id === this.props.currentSong.id);
         let nextIndex = index<album.length-1 ? index+1 : 0;
         let prevIndex = index === 0 ? album.length-1 : index-1;
 
@@ -65,7 +65,7 @@ changePagePrev = () => {
 
 // играть следующий трек
     playNextSong = () => {
-        let album = this.props.currentAlbum[0];
+        let album = this.props.currentAlbum;
         if(album.length>0){
             this.props.playNewSong(album[this.state.indexNextSong]);
             this.changePageNext();
@@ -76,7 +76,7 @@ changePagePrev = () => {
 
 // играть предыдущий трек
     playPrevSong = () => {
-        let album = this.props.currentAlbum[0];
+        let album = this.props.currentAlbum;
         if(album.length>0){
             this.props.playNewSong(album[this.state.indexPrevSong]);
             this.changePagePrev();
@@ -85,20 +85,23 @@ changePagePrev = () => {
         }
     }
 
-
-    componentDidMount = () => {
-        let audio = document.getElementsByTagName("audio")[0];
-        
-        if(audio){
-            audio.addEventListener("playing", ()=>{this.setIndexes(); this.props.play()}, false)
-            audio.addEventListener("pause", ()=>{this.props.pause()}, false)
-            audio.addEventListener("ended", ()=>{this.playNextSong()}, false)
-        }
+    onPauseListener = () => {
+        this.props.pause();
     }
+
+    onPlayListener = () => {
+        this.getIndexes(); 
+        this.props.play()
+    }
+
+    onEndedListener = () => {
+        this.playNextSong()
+    }
+
 
     componentDidUpdate(prevProps){
         if(this.props.currentSong && prevProps.currentAlbum !== this.props.currentAlbum){
-            this.setIndexes()
+            this.getIndexes()
         }
     }
 
@@ -124,12 +127,12 @@ changePagePrev = () => {
                     this.props.currentSong ?
                         <span className="mp3_title_block">
                             <span className="song_artistName">
-                                <Link to={`/artist/${this.props.currentSong[0].artistName}`}>
-                                    {this.props.currentSong[0].artistName}
+                                <Link to={`/artist/${this.props.currentSong.artistName}`}>
+                                    {this.props.currentSong.artistName}
                                 </Link>
                             </span> 
                             <span>
-                                {this.props.currentSong[0].songName}
+                                {this.props.currentSong.songName}
                             </span>
                         </span>
                     :
@@ -139,9 +142,16 @@ changePagePrev = () => {
             </div>
             {
                 this.props.currentSong ?
-                <audio src={this.props.currentSong[0].src} controls autoPlay></audio>
+                <audio 
+                    src={this.props.currentSong.src} 
+                    onPause={this.onPauseListener} 
+                    onPlay = {this.onPlayListener}
+                    onEnded = {this.onEndedListener}
+                    controls 
+                    autoPlay>
+                </audio>
                 :
-                <audio src=""></audio>
+                null
             }
             
         </div>

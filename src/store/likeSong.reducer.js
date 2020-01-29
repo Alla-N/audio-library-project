@@ -1,12 +1,13 @@
 export const likeSongReducer = (state={
-    likedList:{},
+    likedList:[],
 }, action) => {
 
     switch(action.type) { 
     
         case 'CHANGE_LIKEDLIST': 
         return { 
-            likedList: [action.likedList] 
+            likedList: action.likedList,
+            length: action.length, 
         };  
     
     default: return state; } 

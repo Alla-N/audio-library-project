@@ -12,15 +12,16 @@ class Favorites extends Component {
         this.state={
             currentAlbum:[],
             likedList:[],
+            likedListLength:0,
         }
     }
 
 
     static getDerivedStateFromProps = (nextProps, prevState) => {
-        if(nextProps.likedList !== prevState.likedList){
-            let currentAlbum = nextProps.likedList[0] ? songs.filter(e=>nextProps.likedList[0].includes(e.id)) : [];
+        if(nextProps.likedListLength !== prevState.likedListLength){
+            let currentAlbum = songs.filter(e=>nextProps.likedList.includes(e.id)) ;
             nextProps.addAlbum (currentAlbum);
-            return { currentAlbum: currentAlbum, likedList: nextProps.likedList};
+            return { currentAlbum: currentAlbum, likedList: nextProps.likedList, likedListLength: nextProps.likedListLength};
         }
         else return null;
     }
@@ -113,6 +114,7 @@ class Favorites extends Component {
 const mapStateToProps = (state) =>({
     currentAlbum: state.currentAlbum.album,
     likedList: state.likedSongs.likedList,
+    likedListLength: state.likedSongs.length,
 })
 
 const mapDispatchToProps = (dispatch) =>({

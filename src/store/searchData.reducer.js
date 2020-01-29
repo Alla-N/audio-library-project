@@ -4,7 +4,7 @@ export const searchDataReducer = (state={
     switch (action.type){
         case "ADD_SEARCH_DATA":
             return{
-                value:[action.value],
+                value:action.value,
             }
         default: return state;
     }

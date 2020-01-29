@@ -27,9 +27,9 @@ class SongsPage extends Component {
 //передать в стейт информацию о текущем альбоме
     changeAlbumState = () =>{
         let currentAlbum = 
-        (this.props.filter && this.props.filter[0] !== "all") 
+        (this.props.filter && this.props.filter !== "all") 
         ? 
-        (songs.filter(e=>e.hashtag.includes(this.props.filter[0])).sort(function(a,b){return b.likes-a.likes})) 
+        (songs.filter(e=>e.hashtag.includes(this.props.filter)).sort(function(a,b){return b.likes-a.likes})) 
         : 
         (songs.sort(function(a,b){return b.likes-a.likes}));
 
@@ -79,9 +79,9 @@ class SongsPage extends Component {
         let indexOfLastSong;
 
         let allSongs = 
-        (this.props.filter && this.props.filter != "all") 
+        (this.props.filter !== "all") 
         ? 
-        (songs.filter(e=>e.hashtag.includes(this.props.filter[0])).sort(function(a,b){return b.likes-a.likes})) 
+        (songs.filter(e=>e.hashtag.includes(this.props.filter)).sort(function(a,b){return b.likes-a.likes})) 
         : 
         (songs.sort(function(a,b){return b.likes-a.likes}));
 
@@ -107,7 +107,7 @@ class SongsPage extends Component {
             <div className="songsPage">
             <ScrollToTopOnMount/>
             {
-            (this.props.filter && this.props.filter != "all") ? 
+            (this.props.filter !== "all") ? 
                 <h2> Все композиции {this.props.filter}</h2> 
             : 
                 <h2> Все композиции</h2>}

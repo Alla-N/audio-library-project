@@ -31,7 +31,7 @@ class Results extends Component{
     static getDerivedStateFromProps = (nextProps, prevState) => {
         if(nextProps.searchData && nextProps.searchData !== prevState.searchData){
             console.log(prevState)
-            return { searchData: nextProps.searchData[0]};
+            return { searchData: nextProps.searchData};
         }
         else return null;
     }
@@ -62,7 +62,7 @@ class Results extends Component{
                             )
                         }))
                         :
-                        <span></span>
+                        (<span></span>)
                     }                   
                 </div>
                 <h3>Композиции:</h3>
